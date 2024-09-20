@@ -1,0 +1,218 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.content{
+    margin-top:-10px;
+}
+/*breadvrumb*/
+.breadcrumb{
+    list-style: none;
+    padding:10px 16px;
+    margin-bottom:20px;
+    background-color: #ffffff;
+    border:0;
+    box-shadow:0 1px 5px rgba(0,0,0,0.3);
+}
+.breadcrumb li{
+    display: inline;
+}
+.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+.breadcrumb>li+li::before{
+content:">\00a0";
+color:#cccccc;
+}
+
+/*product details style*/
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10rem;
+    width: 80%;
+    margin: auto;
+}
+.col-md-3 {
+  width:50%;
+  margin: 0 auto;
+  background-color:white;
+}
+
+.col-md-3 img {
+    display: block;
+    object-fit: cover;
+    width: 90%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .col-md-6 
+{  /* col-md-6 */
+    width: 50%;
+    margin: 0 auto;
+    background-color:white;
+}
+.box{
+    position: relative;
+    top: 10px;
+}
+.img_thumbnail{
+    position: relative;
+    top: 10px;
+    bottom: 10px;
+}
+.img_small 
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    width: 90%;
+    margin-left: auto;
+}
+.img_small img 
+{
+    object-fit: cover;
+    width: 22%;
+}
+.img_small img.active
+{
+    border: 2px solid var(--Orange);
+    opacity: 0.3;
+}
+  
+.qt-sneaker
+{
+    display:inline;
+}
+  
+  /*price*/
+.price
+{
+     font-size: 2.5rem;
+    font-weight: 700;
+}
+  
+
+/*
+ Sneeaker size
+  */
+.varient-label b{
+    font-size: 25px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 .5rem 0 -2rem;
+}
+.size-buttons{
+    margin-left:-2rem;
+}
+.size-buttons button
+{
+    width: 5rem;
+    height:2rem;
+    display:inline-block;
+    margin: .7rem .3rem .2rem 0rem;
+    background-color:white;
+    font-size: 1.4rem;
+    line-height: 1;
+    text-align: center;;
+    transition: border var(--duration-short) ease;
+    cursor: pointer;
+    position: relative;
+
+}
+.buttons:hover
+{
+   background-color: black;
+   color: white;
+}
+  
+  /*Add to cart button*/
+  
+.col-md-9{
+  width: 20rem;
+  background-color: white; /* Green */
+  border:solid black;
+  color: black;
+  padding: 20px 32px;
+  padding-left: 35%;
+  text-align: center;
+  text-decoration: none;
+  display:flex;
+  font-size: 20px;
+  margin-left:-1rem;
+  margin-top: 10px;
+
+}  
+.col-md-9:hover{
+  background-color: black;
+  color: white;
+}
+
+/*Accordian*/
+.accordion {
+  background-color:white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color:black;
+  color: white;
+  
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+/*you may also like*/
+.center-responsive img{
+    display:flex;
+    flex-wrap: wrap;
+}
+.products img{
+  height:190px;
+  width: 190px;
+  margin-top:10px;
+  margin-left: -30px;
+}
+.you-may-like {
+  margin-top:-5px;
+  background-color:white;
+}
+.you-may-like h3{
+margin-left:-350px;
+margin-top:30px;
+font-size:30px;
+}
+.you-may-like-product a {
+margin-top:-100px;
+text-decoration:none;
+color: black;
+font-size: 25px;
+}
