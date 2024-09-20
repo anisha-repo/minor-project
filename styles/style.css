@@ -50,7 +50,7 @@ color:#cccccc;
     cursor: pointer;
     margin-left: auto;
   }
-  .col-md-6 
+  .col-md-6
 {  /* col-md-6 */
     width: 50%;
     margin: 0 auto;
@@ -65,7 +65,7 @@ color:#cccccc;
     top: 10px;
     bottom: 10px;
 }
-.img_small 
+.img_small
 {
     display: flex;
     justify-content: space-between;
@@ -73,7 +73,7 @@ color:#cccccc;
     width: 90%;
     margin-left: auto;
 }
-.img_small img 
+.img_small img
 {
     object-fit: cover;
     width: 22%;
@@ -83,19 +83,19 @@ color:#cccccc;
     border: 2px solid var(--Orange);
     opacity: 0.3;
 }
-  
+
 .qt-sneaker
 {
     display:inline;
 }
-  
+
   /*price*/
 .price
 {
      font-size: 2.5rem;
     font-weight: 700;
 }
-  
+
 
 /*
  Sneeaker size
@@ -129,9 +129,9 @@ color:#cccccc;
    background-color: black;
    color: white;
 }
-  
+
   /*Add to cart button*/
-  
+
 .col-md-9{
   width: 20rem;
   background-color: white; /* Green */
@@ -146,7 +146,7 @@ color:#cccccc;
   margin-left:-1rem;
   margin-top: 10px;
 
-}  
+}
 .col-md-9:hover{
   background-color: black;
   color: white;
@@ -169,7 +169,7 @@ color:#cccccc;
 .active, .accordion:hover {
   background-color:black;
   color: white;
-  
+
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -191,10 +191,7 @@ color:#cccccc;
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 /*you may also like*/
-.center-responsive img{
-    display:flex;
-    flex-wrap: wrap;
-}
+
 .products img{
   height:190px;
   width: 190px;
@@ -215,4 +212,9 @@ margin-top:-100px;
 text-decoration:none;
 color: black;
 font-size: 25px;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
