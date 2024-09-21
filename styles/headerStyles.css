@@ -1,0 +1,69 @@
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav {
+    background-color: #111;
+    color: white;
+    padding: 20px 50px;;
+     
+  }
+  
+  .navTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navBar {
+    border: 2px solid white;
+    height: 90px;
+    width: 90px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  
+  .search {
+    display: flex;
+    justify-content: space-evenly;
+    width: 620px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: gray;
+    padding: 10px 20px;
+  }
+  
+  .searchInput {
+    border: none;
+    background-color: transparent;
+    font-size: xx-large;
+  }
+  
+  .searchInput::placeholder {
+    color: lightgray;
+    font-size: xx-large;
+  }
+  
+  
+  .navBottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:xx-large;
+  }
+  
+  .menuItem {
+    margin-right: 50px;
+    cursor: pointer;
+    color: lightgray;
+    font-weight: 400;
+  }
+  
