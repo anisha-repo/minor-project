@@ -44,8 +44,8 @@ function check() {
   return 1;
 }
 document.getElementById('addToCart').addEventListener('click', function() {
-    const sizeSelect = document.querySelector('input[type="radio"][name="btnradio"]:checked').innerHTML;
-    const selectedSize = sizeSelect;
+  const sizeSelect = document.querySelector('input[name="btnradio"]:checked');
+  const selectedSize = sizeSelect.nextElementSibling.getAttribute('value');
     const message = document.getElementById('message');
     let c=check();
 
@@ -53,7 +53,7 @@ document.getElementById('addToCart').addEventListener('click', function() {
         message.textContent = `You have added size ${selectedSize} to your cart.`;
         message.style.color = 'green';
         // Here you can add code to actually add the item to the cart
-    } 
+    }
     else {
         message.textContent = 'Please select a size before adding to cart.';
         message.style.color = 'red';
@@ -105,14 +105,14 @@ function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
+  if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active","");
   }
-  slides[slideIndex-1].style.display = "block";  
+  slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
