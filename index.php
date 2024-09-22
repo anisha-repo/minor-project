@@ -71,16 +71,21 @@
                                     <!-shoe-size-start-->
                         </div>
 
-                               <label class="qty-text"><b>QTY:-</b><label>
+                              
                                 <!--quantity-start-->
                     <div class="qty" >           
-                        <div class="btns">
-                            <button type="button" class="decr" type="decreament">-</button>
-                            <button type="input" class="qty_numbers">1</button>
-                            <button type="button" class="incr" type="decreament">+</button>
+                        <div class="btns-qty">
+                            <div><label class="qty-text">QTY:-</label></div>&nbsp&nbsp&nbsp&nbsp
+                           
+                            <div><button type="button"id="dec">-</button></div>&nbsp&nbsp
+                           
+                            <h2 class="qty_numbers" id="counting">0</h2>&nbsp&nbsp
+                           
+                            <div><button  type="button" id="inc">+</button></div>
                         </div>
                     </div>    
                          <!--quantity-end-->
+                         
                           <!--add-to-cart-start--> 
                         <div class="add-to-cart">
                                 <button class="add_cart" type="submit" id="cart">

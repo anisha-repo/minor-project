@@ -18,23 +18,23 @@ let proPrice = 125;
 let totalQty = qty.innerHTML;
 let totalPrice;
 
-/*btn cart to decrement*/
-decr.addEventListener("click", () => {
-  if (totalQty == 1) {
-    totalQty == 1;
-  } else {
-    totalQty--;
-  }
-  totalPrice = proPrice * totalQty;
-  price.textContent = "$" + totalPrice + ".00";
-  qty.textContent = totalQty;
+
+//creation of increment function
+let data=0;
+
+const inc = document.getElementById("inc");
+const dec = document.getElementById("dec");
+
+inc.addEventListener("click", () => {
+   data=data+1;
+  document.getElementById("input").innerHTML = data;
 });
-/*btn cart to increment*/
-incr.addEventListener("click", () => {
-  totalQty++;
-  totalPrice = proPrice * totalQty;
-  price.textContent = "$" + totalPrice + ".00";
-  qty.textContent = totalQty;
+
+dec.addEventListener("click", () => {
+  if (input.value > 0) {
+   data=data-1;
+  }
+  input.innerText = data;
 });
 
 //add to carts
