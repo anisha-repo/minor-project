@@ -1,9 +1,12 @@
-body{
-    padding: 0;
-    margin: 0;
+html { background-color: black; }
+body { 
+  margin:0;
+  background-color: white; 
 }
+
 .content{
     margin-top:-10px;
+
 }
 /*breadcrumb*/
 .breadcrumb{
@@ -178,13 +181,17 @@ color:#cccccc;
   justify-content:space-evenly;
   width:10rem;
 }
-.btns-qty >div{
+.btns-qty > div{
   
   width:6rem;
   height:3rem;
   text-align:center;
-  font-size: 35px;
 
+}
+.qty_numbers{
+  font-size:30px ;
+  padding-bottom:0;
+  font-weight: bolder;
 }
 
 .btns-qty {

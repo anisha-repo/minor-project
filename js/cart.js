@@ -27,40 +27,41 @@ const dec = document.getElementById("dec");
 
 inc.addEventListener("click", () => {
    data=data+1;
-  document.getElementById("input").innerHTML = data;
+  document.getElementById("counting").innerHTML = data;
 });
 
 dec.addEventListener("click", () => {
-  if (input.value > 0) {
-   data=data-1;
+  if (data > 0) {
+    data=data-1;
+    document.getElementById("counting").innerHTML = data;
   }
   input.innerText = data;
 });
 
-//add to carts
-btnAddCart.addEventListener("click", () => {
-  qtyLable.style.display = "block";
-  qtyLable.innerHTML = totalQty;
-  proContainer.innerHTML = "";
-  let html = `<img src="./images/image-product-1-thumbnail.jpg" alt="" />
-  <div class="p_details">
-    <p class="pro_txt">Fall Limited Edition Sneakers</p>
-    <p class="price">
-      $125.00 <span>x</span><span class="times">${totalQty}</span>
-      $<span class="total">${totalPrice}</span>
-    </p>
-  </div>
-  <div class="trash">
-    <img src="./images/icon-delete.svg" alt="" class="trash_img" />
-  </div>`;
-  proContainer.insertAdjacentHTML("afterbegin", html);
-  cartEmpty.innerHTML = "";
-  document.querySelector(".trash_img").addEventListener("click", () => {
-    cartEmpty.innerHTML = "Your cart is empty :)";
-    proContainer.innerHTML = "";
-    qtyLable.style.display = "none";
-  });
+//shoe size
+function check() {
+  document.getElementsByClassName("btn-check").checked = true;
+  return 1;
+}
+document.getElementById('addToCart').addEventListener('click', function() {
+    const sizeSelect = document.querySelector('input[type="radio"][name="btnradio"]:checked').innerHTML;
+    const selectedSize = sizeSelect;
+    const message = document.getElementById('message');
+    let c=check();
+
+    if (c==1) {
+        message.textContent = `You have added size ${selectedSize} to your cart.`;
+        message.style.color = 'green';
+        // Here you can add code to actually add the item to the cart
+    } 
+    else {
+        message.textContent = 'Please select a size before adding to cart.';
+        message.style.color = 'red';
+    }
 });
+
+//add to carts
+
 
 // display thumbnail images
 thumImg.forEach((img, indx) => {
