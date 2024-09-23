@@ -77,7 +77,7 @@
                            
                             <div><button type="button"id="dec">-</button></div>&nbsp&nbsp
                            
-                            <div class="qty_numbers" id="counting">0</div>&nbsp&nbsp
+                            <div class="qty_numbers" id="counting">1</div>&nbsp&nbsp
                            
                             <div><button  type="button" id="inc">+</button></div>
                         </div>
@@ -115,7 +115,7 @@
                 </div><!--row end-->
                                 
                &nbsp&nbsp  
-                <hr>
+                
                 <div class="container-fluid you-may-like"><!--container start-->
                     <div class="row same-height-row"><!--row start-->
                        <div class="col-md-6 col-sm-12"><!--col-md-6-start-->

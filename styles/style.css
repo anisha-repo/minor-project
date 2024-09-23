@@ -1,4 +1,7 @@
-html { background-color: black; }
+html 
+{ background-color: black; 
+}
+
 body { 
   margin:0;
   background-color: white; 
@@ -189,7 +192,7 @@ color:#cccccc;
 
 }
 .qty_numbers{
-  font-size:30px ;
+  font-size:25px ;
   padding-bottom:0;
   font-weight: bolder;
 }
@@ -203,10 +206,16 @@ color:#cccccc;
   width: 3rem;
   margin-left: 0;
   margin-right: 0;
+  font-size: 25px;
+
 }
 .qty-text{
   margin:0;
   font-size: 20px;
+}
+.btns-qty button:hover{
+  background-color: black;
+  color: white;
 }
 
 

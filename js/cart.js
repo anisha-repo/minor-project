@@ -20,18 +20,20 @@ let totalPrice;
 
 
 //creation of increment function
-let data=0;
+let data=1;
 
 const inc = document.getElementById("inc");
 const dec = document.getElementById("dec");
 
 inc.addEventListener("click", () => {
-   data=data+1;
+   if(data<5){
+    data=data+1;
   document.getElementById("counting").innerHTML = data;
+   }
 });
 
 dec.addEventListener("click", () => {
-  if (data > 0) {
+  if (data > 1 && data <=5) {
     data=data-1;
     document.getElementById("counting").innerHTML = data;
   }
