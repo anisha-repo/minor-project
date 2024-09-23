@@ -1,5 +1,5 @@
 <?php
- include("includes/db.php");
+include("includes/db.php");
  include("includes/header.html");
 ?>
    <main>
@@ -201,7 +201,7 @@
         </div><!--content end-->
     </main>
 
-   <script src="js/cart.js"></script>>
+   <script src="js/cart.js"></script>
 
 <?php
  include("includes/footer.html");

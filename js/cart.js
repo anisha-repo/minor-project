@@ -1,24 +1,3 @@
-const btnAddCart = document.querySelector(".add_cart");
-const qty = document.querySelector(".qty_numbers");
-const decr = document.querySelector(".decr");
-const incr = document.querySelector(".incr");
-
-//modal image
-const thumImg = document.querySelectorAll(".numbertext img");
-const imgLarge = document.querySelector(".numbertext img");
-//modal
-const modalEl = document.querySelector(".modal");
-const closeModal = document.querySelector(".close_icon");
-const nextImg = document.querySelector(".next img");
-const prevImg = document.querySelector(".prev img");
-const modalImgs = document.querySelectorAll(".img_small_modal img");
-const modalLImg = document.querySelector(".m_img");
-
-let proPrice = 125;
-let totalQty = qty.innerHTML;
-let totalPrice;
-
-
 //creation of increment function
 let data=1;
 
@@ -66,14 +45,7 @@ document.getElementById('addToCart').addEventListener('click', function() {
 
 
 // display thumbnail images
-thumImg.forEach((img, indx) => {
-  indx++;
-  img.addEventListener("click", (e) => {
-    imgLarge.src = `images/image-product-${indx}.jpg`;
-    thumImg.forEach((thumb) => thumb.classList.remove("active"));
-    img.classList.add("active");
-  });
-});
+
 
 //acordian
 var acc = document.getElementsByClassName("accordion");
