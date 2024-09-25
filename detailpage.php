@@ -12,8 +12,8 @@ if ($product_id <= 0) {
 }
 
 // Prepare the SQL statement to fetch product details
-$sql_product = "SELECT Brand_name, model, description, original_price, about 
-                FROM products 
+$sql_product = "SELECT Brand_name, model, description, original_price, about
+                FROM products
                 WHERE product_id = ?";
 $stmt_product = $connection->prepare($sql_product);
 
@@ -67,25 +67,25 @@ $currentProductId = isset($_GET['product_id']) ? (int)$_GET['product_id'] : 0;;
 $result = $connection->query("SELECT Brand_id FROM products WHERE product_id = $currentProductId");
 $currentProduct = $result->fetch_assoc();
 
-$sql  = "SELECT 
-            p.product_id, 
+$sql  = "SELECT
+            p.product_id,
             p.Brand_name,
-            p.model, 
-            p.original_price, 
-            (SELECT i.image_url 
-             FROM productimages i 
-             WHERE i.product_id = p.product_id 
+            p.model,
+            p.original_price,
+            (SELECT i.image_url
+             FROM productimages i
+             WHERE i.product_id = p.product_id
              LIMIT 1) AS image_url
-        FROM 
+        FROM
             products p
-        WHERE 
+        WHERE
         product_id != $currentProductId LIMIT 5";
 
   $result = $connection->query($sql);
 
 
 
-  
+
 // Close the database connections
 $stmt_product->close();
 $stmt_images->close();
@@ -105,9 +105,9 @@ $connection->close();
         <div class="content"><!--content start -->
           <div class="container-fluid"><!--container start-->
             <div class="row" id="productmain"><!--row start-->
-                   
+
                     <!--display-image--start-->
-                  
+
                <div class="col-md-3"><!--col-md-3-start-->
                   <div class="product-grid">
                       <?php foreach ($images as $image_url): ?>
@@ -126,11 +126,11 @@ $connection->close();
                            <p class="price">Rs.<?php echo htmlspecialchars($product['original_price']); ?>&nbsp&nbsp&nbsp&nbsp</p>
                         </div>
 
-                        
+
                         <h4 class="size-text">Shoe size(UK)</h4>
-                         
+
                                 <!--shoe-size-start-->
-                       
+
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="sizeSelect">
                               <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                               <label class="btn btn-outline-primary" for="btnradio1" value="7">7</label>
@@ -145,30 +145,30 @@ $connection->close();
                               <label class="btn btn-outline-primary" for="btnradio4" value="10">10</label><!--shoe-size-start-->
                         </div>
 
-                              
+
                                 <!--quantity-start-->
-                    <div class="qty" >           
+                    <div class="qty" >
                         <div class="btns-qty">
                             <div><label class="qty-text">QTY:-</label></div>&nbsp&nbsp&nbsp&nbsp
-                           
+
                             <div><button type="button"id="dec">-</button></div>&nbsp&nbsp
-                           
+
                             <div class="qty_numbers" id="counting">1</div>&nbsp&nbsp
-                           
+
                             <div><button  type="button" id="inc">+</button></div>
                         </div>
-                    </div>    
+                    </div>
                          <!--quantity-end-->
-                         
-                          <!--add-to-cart-start--> 
+
+                          <!--add-to-cart-start-->
                         <div class="add-to-cart" id="addToCart">
                                 <button class="add_cart" type="submit" id="cart">
                                     <i class='fas fa-cart-plus'>&nbsp&nbspAdd to Cart</i>
                                 </button>
                                  <p id="message"></p>
                         </div>
-                        <!--add-to-cart-end--> 
-                    
+                        <!--add-to-cart-end-->
+
                         <!--Accordian start-->
                         <div class="prod-details">
                                <div class="Acord">
@@ -176,43 +176,43 @@ $connection->close();
                                         <div class="panel">
                                         <p><?php echo htmlspecialchars($product['description']); ?></p>
                                         </div>
-                                </div>  
-                                <div class="Acord">     
+                                </div>
+                                <div class="Acord">
                                         <button class="accordion">About product</button>
                                         <div class="panel">
                                         <p><?php echo htmlspecialchars($product['about']); ?></p>
                                         </div>
                                 </div>
-                        </div>   
+                        </div>
                         <!--Accordian end-->
-                    
+
                     </div><!--col-md-6-end-->
-                    
+
                 </div><!--row end-->
-                                
-               &nbsp&nbsp  
-              
-                
+
+               &nbsp&nbsp
+
+
    <div class="container-fluid you-may-like"><!--container start-->
     <h3>YOU MAY LIKE</h3>
             <div class="flex-container">
             <?php
                     if ($currentProduct)
-                    {  
+                    {
                         if ($result->num_rows > 0)
                         {
-                         
-                            while ($product =$result->fetch_assoc()) 
+
+                            while ($product =$result->fetch_assoc())
                              {
-               
-                               echo'<div class="products">';
-    
+
+                               echo'<div class="products you-may-like-product">';
+
                                 echo  '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><img src="' . htmlspecialchars($product['image_url']) .'" alt="' . htmlspecialchars($product['model']) . '"></a>';
-                                echo '<div class="you-may-like-product">';
-                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><h5 class="product-name">'.htmlspecialchars($product['Brand_name']) . '</h5>' ;
+                                // echo '<div class="you-may-like-product">';
+                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><h5 class="product-name">'.htmlspecialchars($product['Brand_name']) . '</h5></a>' ;
 
                                 echo '<p class = "product-price">price:' . htmlspecialchars($product['original_price']) . '</p>';
-                                echo '</div>'; 
+                                echo '</div>';
                              }
                         }
                         else
@@ -220,11 +220,11 @@ $connection->close();
                             echo 'No related products found.';
                         }
                     }
-                    else 
+                    else
                     {
                      echo 'Product not found.';
                     }
-                            
+
                 ?>
 
                 </div><!--container end-->
