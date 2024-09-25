@@ -60,6 +60,32 @@ if ($result_product->num_rows > 0) {
     exit;
 }
 
+
+$currentProductId = isset($_GET['product_id']) ? (int)$_GET['product_id'] : 0;;
+
+// Get the current product's category
+$result = $connection->query("SELECT Brand_id FROM products WHERE product_id = $currentProductId");
+$currentProduct = $result->fetch_assoc();
+
+$sql  = "SELECT 
+            p.product_id, 
+            p.Brand_name,
+            p.model, 
+            p.original_price, 
+            (SELECT i.image_url 
+             FROM productimages i 
+             WHERE i.product_id = p.product_id 
+             LIMIT 1) AS image_url
+        FROM 
+            products p
+        WHERE 
+        product_id != $currentProductId LIMIT 5";
+
+  $result = $connection->query($sql);
+
+
+
+  
 // Close the database connections
 $stmt_product->close();
 $stmt_images->close();
@@ -73,7 +99,6 @@ $connection->close();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="styles/detailpage.css">
-
 </head>
 <body>
    <main>
@@ -170,51 +195,37 @@ $connection->close();
                 
    <div class="container-fluid you-may-like"><!--container start-->
     <h3>YOU MAY LIKE</h3>
-                     <div class="flex-container">
-                      <div class="products">
-                        <a href="index.php"><img src="styles/luis-felipe-lins-LG88A2XgIXY-unsplash (1).jpg" alt=""/></a>
-                              <div class="you-may-like-product">
-                                <a href=index.php><h5 class="product-name">sneakers</h5></a>
-                                <p class="product-price"><small class="text-danger"><s>Rs. 1500</s></small></p>
-                                <p class="actual-price">Rs.1000</p>
-                               </div>
-                      </div>
-                      <div class="products">
-                        <a href="index.php"><img src="styles/luis-felipe-lins-LG88A2XgIXY-unsplash (1).jpg" alt=""/></a>
-                              <div class="you-may-like-product">
-                                <a href=index.php><h5 class="product-name">sneakers</h5></a>
-                                <p class="product-price"><small class="text-danger"><s>Rs. 1500</s></small></p>
-                                <p class="actual-price">Rs.1000</p>
-                               </div>
-                      </div>
-                      <div class="products">
-                        <a href="index.php"><img src="styles/luis-felipe-lins-LG88A2XgIXY-unsplash (1).jpg" alt=""/></a>
-                              <div class="you-may-like-product">
-                                <a href=index.php><h5 class="product-name">sneakers</h5></a>
-                                <p class="product-price"><small class="text-danger"><s>Rs. 1500</s></small></p>
-                               <p class="actual-price">Rs.1000</p>
-                               </div>
-                      </div>
+            <div class="flex-container">
+            <?php
+                    if ($currentProduct)
+                    {  
+                        if ($result->num_rows > 0)
+                        {
+                         
+                            while ($product =$result->fetch_assoc()) 
+                             {
+               
+                               echo'<div class="products">';
+    
+                                echo  '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><img src="' . htmlspecialchars($product['image_url']) .'" alt="' . htmlspecialchars($product['model']) . '"></a>';
+                                echo '<div class="you-may-like-product">';
+                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><h5 class="product-name">'.htmlspecialchars($product['Brand_name']) . '</h5>' ;
 
-                       <div class="products">
-                        <a href="index.php"><img src="styles/luis-felipe-lins-LG88A2XgIXY-unsplash (1).jpg" alt=""/></a>
-                              <div class="you-may-like-product">
-                                <a href=index.php><h5 class="product-name">sneakers</h5></a>
-                                <p class="product-price"><small class="text-danger"><s>Rs. 1500</s></small></p>
-                                <p class="actual-price">Rs.1000</p>
-                               </div>
-                      </div>
-
-                       <div class="products">
-                        <a href="index.php"><img src="styles/luis-felipe-lins-LG88A2XgIXY-unsplash (1).jpg" alt=""/></a>
-                              <div class="you-may-like-product">
-                                <a href=index.php><h5 class="product-name">sneakers</h5></a>
-                                <p class="product-price"><small class="text-danger"><s>Rs. 1500</s></small></p>
-                                <p class="actual-price">Rs.1000</p>
-                               </div>
-                      </div>
-                    </div>
-
+                                echo '<p class = "product-price">price:' . htmlspecialchars($product['original_price']) . '</p>';
+                                echo '</div>'; 
+                             }
+                        }
+                        else
+                        {
+                            echo 'No related products found.';
+                        }
+                    }
+                    else 
+                    {
+                     echo 'Product not found.';
+                    }
+                            
+                ?>
 
                 </div><!--container end-->
 

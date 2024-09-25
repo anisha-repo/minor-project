@@ -237,13 +237,12 @@ body {
   }
 
 /*you may also like*/
-
 .products img{
-  height:190px;
-  width: 190px;
   margin-top:10px;
   margin-left:10px;
   margin-right:10px ;
+  width: 200px; /* Make images responsive */
+  height: 200px; /* Maintain aspect ratio */
 }
 .you-may-like {
   margin-top:-5px;
@@ -266,15 +265,17 @@ font-size: 25px;
 }
 .flex-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+.products{
+  flex: 1 1 20%; /* Grow to fill space, shrink to 20% width */
+    max-width: 200px; /* Set a maximum width for each product */
+    margin: 10px; /* Space between products */
+    text-align: center;
 }
 .product-price{
     margin-top: 0.5rem;
     margin-bottom:0 ;
     font-size: 25px;
-}
-.actual-price{
-  font-size: 30px;
-  margin-top: 0;
 }

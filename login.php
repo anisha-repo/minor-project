@@ -7,7 +7,7 @@ include("includes/db.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONFIRMATION</title>
+    <title>solemate</title>
     <link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
@@ -15,25 +15,25 @@ include("includes/db.php");
         <form id="loginForm" onsubmit="return validateForm()">
             <h2>Join the Sneaker Crew</h2>
 
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="fname" placeholder="First Name" required>
+            <label for="fname" class="login">First Name</label>
+            <input type="text" id="fname" class ="logininfo" name="fname" placeholder="First Name" required>
 
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+            <label for="lname" class="login">Last Name</label>
+            <input type="text" id="lname" class ="logininfo" name="lname" placeholder="Last Name" required>
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            <label for="phone" class="login">Phone Number</label>
+            <input type="tel" id="phone" class ="logininfo" name="phone" placeholder="Phone Number" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
+            <label for="email" class="login">Email</label>
+            <input type="email" id="email" class ="logininfo" name="email" placeholder="Email" required>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <label for="password" class="login">Password</label>
+            <input type="password" id="password" class ="logininfo" name="password" placeholder="Password" required>
 
-            <label for="address">Address</label>
-            <textarea id="address" name="address" placeholder="Your Address" required></textarea>
+            <label for="address" class="login">Address</label>
+            <textarea id="address" class ="logininfo" name="address" placeholder="Your Address" required></textarea>
 
-            <button type="submit">Get Your Kicks</button>
+            <button class="login-btn" type="submit">Get Your Kicks</button>
         </form>
     </div>
 
