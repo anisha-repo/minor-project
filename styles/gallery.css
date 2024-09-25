@@ -1,0 +1,47 @@
+body {
+  font-family:  "Lato", sans-serif;
+  background-color: #f4f4f4;
+  padding: 0;
+  margin: 0;
+}
+h2{
+    padding-bottom: 10px;
+    font-size: 300%;
+    text-align: center;
+    font-size: 500%;
+}
+p{
+   text-align: center;
+   font-weight: bold;
+}
+.products-container {
+  padding:20px;
+}
+
+
+.product-gallery 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    
+     
+ }
+.product 
+{
+    border-radius: 5px;
+    align-items: center;
+    border: 2px solid white;
+    text-align: center;
+    margin-right: 2%;
+    margin-left: 2%;
+    padding-bottom: 5%;
+}
+.product img {
+  background-color: #e5e5e5;
+  display: block;
+  width:300px;
+  margin-left: 4.5rem;
+  
+}
+

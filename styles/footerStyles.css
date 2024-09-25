@@ -1,3 +1,37 @@
+footer {
+  display: flex;
+}
+
+.footerLeft {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.fMenuTitle {
+  font-size: 16px;
+}
+
+.fList {
+  padding: 0;
+  list-style: none;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.footerRight {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .footer-container
 {  height:30%;
    width: 100%;
@@ -11,7 +45,6 @@
    background-color:white;
    gap: 2rem;
 }
-
 
 .footer-container > div {
   margin: 20px;
@@ -43,12 +76,16 @@
   align-items: initial;
 }
 .footerRight
-{ margin-right: 7rem;
-
+{ 
+  margin-right: 7rem;
    display: flex;
   flex-direction: column;
 }
 .footerRight > div {
   margin: 10px;
-  padding: 5px;
+  padding:5px;
 }
+.payment{
+    width: 90%;
+    padding: 20px;
+  }

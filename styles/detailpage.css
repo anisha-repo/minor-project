@@ -1,4 +1,4 @@
-html { background-color: black; }
+
 body {
   margin:0;
   background-color: white;
@@ -8,26 +8,7 @@ body {
     margin-top:-10px;
 
 }
-/*breadcrumb*/
-.breadcrumb{
-    list-style: none;
-    padding:10px 16px;
-    margin-bottom:20px;
-    background-color: #ffffff;
-    border:0;
-    box-shadow:0 1px 5px rgba(0,0,0,0.3);
-}
-.breadcrumb li{
-    display: inline;
-}
-.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
-  }
-.breadcrumb>li+li::before{
-content:">\00a0";
-color:#cccccc;
-}
+
 
 /*product details style*/
 
@@ -36,83 +17,40 @@ color:#cccccc;
     justify-content: space-between;
     align-items: center;
     gap: 5rem;
-    width:80%;
+    width:100%;
     margin: auto;
 }
-/*image slider*/
+/*image grid view*/
 .col-md-3 {
-  max-width:50%;
-  margin: 0 auto;
+  max-width:70%;
+  margin-left:5rem;
   background-color:white;
   position: relative;
+  margin-top: 5rem;
 }
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
 }
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.product-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+.product-grid img:hover {
+  transform: scale(1.05);
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-flex;
-  transition: background-color 0.6s ease;
-}
 
-.active, .dot:hover
-{
-  background-color: black;
-}
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-/*product description*/
 .col-md-6
 {  /* col-md-6 */
-    width: 50%;
-    margin: 0 auto;
+    width: 30%;
+    margin-right:5rem;
+    margin-top: 5rem ;
     background-color:white;
 }
 .box{
@@ -155,6 +93,7 @@ color:#cccccc;
     font-size: 16px;
     border: 2px solid #444;
     border-radius: 4px;
+    margin-top:1rem
 }
 .btn-group  input[type="radio"]:checked + label {
     background-color:lightgray;
@@ -311,7 +250,7 @@ color:#cccccc;
   background-color:white;
 }
 .you-may-like h3{
-margin-left:-350px;
+margin-left:2rem;
 margin-top:30px;
 font-size:30px;
 }
