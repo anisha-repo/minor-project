@@ -25,6 +25,7 @@ footer {
 }
 
 .footerRight {
+  padding-top: 1rem;
   flex: 1;
   padding: 50px;
   display: flex;
@@ -52,9 +53,13 @@ footer {
 }
 .footerLeft
 {
+  padding-top: 3rem;
  margin-left:20px;
    display: flex;
    gap: 10rem;
+   flex: 2;
+  justify-content: space-between;
+  padding: 50px;
 }
 .footerLeft > div {
   margin: 10px;

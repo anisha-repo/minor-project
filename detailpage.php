@@ -209,9 +209,10 @@ $connection->close();
 
                                 echo  '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><img src="' . htmlspecialchars($product['image_url']) .'" alt="' . htmlspecialchars($product['model']) . '"></a>';
                                 // echo '<div class="you-may-like-product">';
-                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><h5 class="product-name">'.htmlspecialchars($product['Brand_name']) . '</h5></a>' ;
+                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><h5 class="product-name"><b>'.htmlspecialchars($product['Brand_name']) . '</b></h5></a>' ;
+                                echo '<a href="detailpage.php?product_id=' . $product['product_id'] . '"><p class="product-name">'.htmlspecialchars($product['model']) . '</p></a>' ;
 
-                                echo '<p class = "product-price">price:' . htmlspecialchars($product['original_price']) . '</p>';
+                                echo '<p class = "product-price">Rs.<b> ' . htmlspecialchars($product['original_price']) . '</b></p>';
                                 echo '</div>';
                              }
                         }
