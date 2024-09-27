@@ -17,7 +17,7 @@
     <div class="slider" >
         <div class="sliderWrapper">
             <div class="sliderItem" >
-                <img src="imgs/NIKE.png" alt="" class="sliderImg" >
+                <img src="imgs/NIKE.png" alt="image 1" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">NIKE</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">14,975/-</h2>
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="sliderItem" >
-                <img src="imgs/PUMA.png" alt="" class="sliderImg" >
+                <img src="imgs/PUMA.png" alt="image 2" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">PUMA</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">5,999/-</h2>
@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="sliderItem" >
-                <img src="imgs/ADIDAS.png" alt="" class="sliderImg" >
+                <img src="imgs/ADIDAS.png" alt="image 3" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">ADIDAS</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">10,999/-</h2>
@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div class="sliderItem" >
-                <img src="imgs/CONVERSE.png" alt="" class="sliderImg" >
+                <img src="imgs/CONVERSE.png" alt="image 4" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">CONVERSE</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">6,999/-</h2>
@@ -53,7 +53,7 @@
                 </a>
             </div>
             <div class="sliderItem" >
-                <img src="imgs/NEWBALANCE.png" alt="" class="sliderImg" >
+                <img src="imgs/NEWBALANCE.png" alt="image 5" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">NEW BALANCE</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">9,799/-</h2>
@@ -62,6 +62,8 @@
                 </a>
             </div>
         </div>
+        <button class="prev" onclick="changeSlider(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
     </div>
 
     <div class="features">
@@ -167,7 +169,7 @@
     include("includes/footer.html");
     ?>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
   </body>
 </html>
