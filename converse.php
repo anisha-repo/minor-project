@@ -39,7 +39,7 @@ include("includes/db.php");
                             echo  '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) .'" alt="' . htmlspecialchars($row['model']) .'"></a>';
                             echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
                             echo '<p>' . htmlspecialchars($row['model']) . '</p>';
-                            echo '<p>Price: $' . htmlspecialchars($row['original_price']) . '</p>';
+                            echo '<p>Price: Rs. ' . htmlspecialchars($row['original_price']) . '</p>';
                             echo '</span>';
                             echo '</div>';
                         }
