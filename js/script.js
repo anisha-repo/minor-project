@@ -92,6 +92,34 @@ menuItems.forEach((item, index) => {
     //change the current slide
     wrapper.style.transform = `translateX(${-100 * index}vw)`;
 
+    //changes in slide button
+    let slideIndex = 0;
+    showSlide(slideIndex);
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(index) {
+    let sliderItem = document.getElementsByClassName("sliderItem");
+    
+    // Reset index if it's out of bounds
+    if (index >= sliderItem.length) {
+        slideIndex = 0;
+    } else if (index < 0) {
+        slideIndex = sliderItem.length - 1;
+    }
+
+    // Hide all images
+    for (let i = 0; i < sliderItem.length; i++) {
+      sliderItem[i].classList.remove("active");
+    }
+
+    // Show the active image
+    sliderItem[slideIndex].classList.add("active");
+}
+
+
     //change the choosen product
     choosenProduct = products[index];
 

@@ -2,7 +2,7 @@
 include("includes/header.html");
 include("includes/db.php");
 
- $sql = $sql = "SELECT 
+ $sql = "SELECT 
             p.product_id, 
             p.Brand_name,
             p.model, 
