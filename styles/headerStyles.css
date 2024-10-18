@@ -2,12 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
 nav {
   background-color: #111;
   color: white;
@@ -84,4 +78,46 @@ nav {
   cursor: pointer;
   color:white;
   font-weight: 400;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-size-adjust: 100%;
+}
+
+.ul{
+  list-style-type: none;
+  background-color: black;
+  color: white;
+}
+
+ul li{
+  display: inline-block;
+  padding: 30px;
+}
+
+ul li:hover{
+ background-color:white;
+ color:black;
+}
+.dropdown{display: none;
+  background-color: antiquewhite;
+}
+
+ul li:hover .dropdown{
+  display: block;
+  position: absolute;
+  margin-left: -0.8cm;
+  margin-top: 0.8cm;
+}
+ .dropdown ul{
+  margin: 0;
+  padding: 0;
+ }
+
+.dropdown ul li{
+  display: block;
+  color:grey;
 }
