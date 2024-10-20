@@ -31,6 +31,9 @@ include("includes/db.php");
 <body>
 
     <section class="products-container">
+       <?php
+       include("includes/FILTER.html");
+       ?>
            <div class="product-gallery">
                     <?php
                     if ($result->num_rows > 0) {
@@ -40,6 +43,11 @@ include("includes/db.php");
                         
                             echo  '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) .'" alt="' . htmlspecialchars($row['model']) . '"></a>';
                             echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
+                            echo '<div class="wishlist-icon">';
+                            echo  ' <a href="#" class="add-to-wishlist" data-product-id="<?php echo $product_id; ?>">';
+                            echo '  <i class="fa-regular fa-heart fa-xl" style="color: #000000;"></i>';echo'</i>';
+                                echo '  </a>';
+                            echo '</div>';
                             echo '<p>' . htmlspecialchars($row['model']) . '</p>';
                             echo '<p>Price: Rs. ' . htmlspecialchars($row['original_price']) . '</p>';
                             echo '</span>';
@@ -50,16 +58,14 @@ include("includes/db.php");
                     }
                     ?>
             
-                                                         
-        </div>
+            </div>
     </section>
     
     
     <script src="adidaslayout.js"></script>
 
-    <?php
- include("includes/footer.html");
-?>
+               
+
 </body>
 </html>
 <?php

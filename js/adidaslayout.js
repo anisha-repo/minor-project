@@ -39,4 +39,6 @@ function addToCart(id) {
 }
 
 
+
+
 window.onload = loadProducts;

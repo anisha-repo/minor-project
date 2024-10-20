@@ -1,5 +1,6 @@
 footer {
   display: flex;
+ bottom: 0;
 }
 
 .footerLeft {
@@ -38,7 +39,6 @@ footer {
    width: 100%;
    display: flex;
    justify-content: space-between;
-   background-color: beige;
    margin-left:10px;
    margin-right:10px;
    align-items: center;

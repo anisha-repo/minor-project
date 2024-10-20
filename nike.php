@@ -31,7 +31,9 @@ include("includes/db.php");
 <body>
 
     <section class="products-container">
-       
+    <?php
+       include("includes/FILTER.html");
+       ?>
            <div class="product-gallery">
                     <?php
                     if ($result->num_rows > 0) {
@@ -57,9 +59,7 @@ include("includes/db.php");
     
     <script src="adidaslayout.js"></script>
 
-    <?php
- include("includes/footer.html");
-?>
+    
 </body>
 </html>
 <?php
