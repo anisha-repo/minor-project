@@ -16,13 +16,18 @@ p{
 }
 .products-container {
   padding:20px;
+  display: flex;
+  flex-direction: row;
+  
 }
-
 
 .product-gallery 
 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  margin-left:2rem;
+  padding:1px 16px;
+  height:1000px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     
      
@@ -41,7 +46,12 @@ p{
   background-color: #e5e5e5;
   display: block;
   width:300px;
-  margin-left: 4.5rem;
+  margin-left: 1.5rem;
+  align-items: center;
   
 }
-
+.wishlist-icon {
+  position: absolute; /* or relative, depending on your layout */
+  top: 10px;
+  right: 10px;
+}
