@@ -165,7 +165,15 @@ $connection->close();
                                 <button class="add_cart" type="submit" id="cart">
                                     <i class='fas fa-cart-plus'>&nbsp&nbspAdd to Cart</i>
                                 </button>
+                                <?php
+                            
+                            echo '<button class="wish"  id="wishlistIcon">';
+                            echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist">';
+                            echo'</i>';
+                            echo '</button >';
+                          ?>  
                                  <p id="message"></p>
+                                 
                         </div>
                         <!--add-to-cart-end-->
 

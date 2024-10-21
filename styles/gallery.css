@@ -43,15 +43,59 @@ p{
     padding-bottom: 5%;
 }
 .product img {
-  background-color: #e5e5e5;
+  background-color: #F4F4F4;
   display: block;
-  width:300px;
+ height: 250px;
+  width: 300px;
+  margin-top: 1.5rem;
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
   align-items: center;
+  object-fit: contain;
   
 }
-.wishlist-icon {
-  position: absolute; /* or relative, depending on your layout */
-  top: 10px;
-  right: 10px;
+
+.wish {
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  top:25px;
+  left:130px;
+  color: gray;
+  position: relative; /* Adjust if needed */
 }
+
+/* Added focus style for button */
+.wish:focus {
+  outline: none; /* Remove default outline */
+}
+.wishlist-icon {
+  cursor: pointer;
+}
+.wish:focus .wishlist {
+  color:  red; /* Outline on focus */
+  outline-offset: 2px; /* Offset for better visibility */
+}
+
+
+.wishlist {
+  color: gray; /* Default color */
+  transition: color 0.3s; /* Smooth transition */
+}
+
+.wishlist:active {
+  color: red; /* Color when active */
+}
+
+@keyframes beat {
+  0% {
+      transform: scale(1.4);
+  }
+  50% {
+      transform: scale(0.8);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+

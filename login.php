@@ -7,36 +7,55 @@ include("includes/db.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>solemate</title>
+    <title>login/signup</title>
     <link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
     <div class="container">
-        <form id="loginForm" onsubmit="return validateForm()">
-            <h2>Join the Sneaker Crew</h2>
+        <div class="tab-container">
+            <button class="tab-link active" onclick="openTab('signin')">Sign In</button>
+            <button class="tab-link" onclick="openTab('signup')">Sign Up</button>
+        </div>
+        <div id="signin" class="tab-content">
+            <form id="signinForm" onsubmit="return validateSignInForm()">
+                <h2>Sign In to Your Account</h2>
 
-            <label for="fname" class="login">First Name</label>
-            <input type="text" id="fname" class ="logininfo" name="fname" placeholder="First Name" required>
+                <label for="email-signin">Email</label>
+                <input type="email" id="email-signin" name="email-signin" placeholder="Email" required>
 
-            <label for="lname" class="login">Last Name</label>
-            <input type="text" id="lname" class ="logininfo" name="lname" placeholder="Last Name" required>
+                <label for="password-signin">Password</label>
+                <input type="password" id="password-signin" name="password-signin" placeholder="Password" required>
 
-            <label for="phone" class="login">Phone Number</label>
-            <input type="tel" id="phone" class ="logininfo" name="phone" placeholder="Phone Number" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div id="signup" class="tab-content" style="display: none;">
+            <form id="signupForm" onsubmit="return validateSignUpForm()">
+                <h2>Join The Sneaker Crew</h2>
 
-            <label for="email" class="login">Email</label>
-            <input type="email" id="email" class ="logininfo" name="email" placeholder="Email" required>
+                <label for="fname">First Name</label>
+                <input class="in-data" type="text" id="fname" name="fname" placeholder="First Name" required>
 
-            <label for="password" class="login">Password</label>
-            <input type="password" id="password" class ="logininfo" name="password" placeholder="Password" required>
+                <label for="lname">Last Name</label>
+                <input  class="in-data" type="text" id="lname" name="lname" placeholder="Last Name" required>
 
-            <label for="address" class="login">Address</label>
-            <textarea id="address" class ="logininfo" name="address" placeholder="Your Address" required></textarea>
+                <label for="phone">Phone Number</label>
+                <input class="in-data" type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-            <button class="login-btn" type="submit">Get Your Kicks</button>
-        </form>
+                <label for="email-signup">Email</label>
+                <input class="in-data" type="email" id="email-signup" name="email-signup" placeholder="Email" required>
+
+                <label for="password-signup">Password</label>
+                <input class="in-data" type="password" id="password-signup" name="password-signup" placeholder="Password" required>
+
+                <label for="address">Address</label>
+                <textarea class="in-data" id="address" name="address" placeholder="Your Address" required></textarea>
+
+                <button class="kicks" type="submit">GET YOUR KICKS</button>
+            </form>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

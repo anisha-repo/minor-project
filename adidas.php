@@ -38,16 +38,17 @@ include("includes/db.php");
                     <?php
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<div class="product">';
+                            echo '<div class="product ">';
                             echo '<span>';
-                        
+                            echo '<div class="wishlist-icon">';
+echo '<button class="wish" data-product-id="' . $row['product_id'] . '">'; // Use data attribute for product ID
+echo ' <i class="fa-solid fa-heart fa-2xl wishlist" data-product-id="' . $row['product_id'] . '"></i>'; // Same here
+echo '</button>';
+echo '</div>';
+
                             echo  '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) .'" alt="' . htmlspecialchars($row['model']) . '"></a>';
                             echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
-                            echo '<div class="wishlist-icon">';
-                            echo  ' <a href="#" class="add-to-wishlist" data-product-id="<?php echo $product_id; ?>">';
-                            echo '  <i class="fa-regular fa-heart fa-xl" style="color: #000000;"></i>';echo'</i>';
-                                echo '  </a>';
-                            echo '</div>';
+                            
                             echo '<p>' . htmlspecialchars($row['model']) . '</p>';
                             echo '<p>Price: Rs. ' . htmlspecialchars($row['original_price']) . '</p>';
                             echo '</span>';

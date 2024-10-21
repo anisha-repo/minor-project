@@ -40,6 +40,12 @@ include("includes/db.php");
                         while ($row = $result->fetch_assoc()) {
                             echo '<div class="product">';
                             echo '<span>';
+                            echo '<div class="wishlist-icon">';
+                            echo '<button class="wish"  id="wishlistIcon">';
+                            echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist">';
+                            echo'</i>';
+                            echo '</button >';
+                            echo '</div>';
                             echo  '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) .'" alt="' . htmlspecialchars($row['model']) . '"></a>';
                             echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
                             echo '<p>' . htmlspecialchars($row['model']) . '</p>';

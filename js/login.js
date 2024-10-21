@@ -1,9 +1,36 @@
-function validateForm() {
+function openTab(tabName) {
+    var i, tabContent, tabLinks;
+    tabContent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.classList.add("active");
+}
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("signin").style.display = "block";
+});
+function validateSignInForm() {
+    var email = document.getElementById("email-signin").value;
+    var password = document.getElementById("password-signin").value;
+
+    if (!email || !password) {
+        alert("Please enter your email and password.");
+        return false;
+    }
+    alert("Signed in successfully!");
+    return true;
+}
+function validateSignUpForm() {
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var phone = document.getElementById("phone").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    var email = document.getElementById("email-signup").value;
+    var password = document.getElementById("password-signup").value;
     var address = document.getElementById("address").value;
 
     if (!fname || !lname || !phone || !email || !password || !address) {
@@ -27,6 +54,6 @@ function validateForm() {
         return false;
     }
 
-    alert("Form submitted successfully!");
+    alert("Account created successfully!");
     return true;
 }
