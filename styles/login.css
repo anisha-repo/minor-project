@@ -21,8 +21,8 @@ body {
 
 .tab-link {
     padding: 10px 20px;
-    background-color: #f5b915;
-    color: #000;
+    background-color: #000000;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -32,11 +32,14 @@ body {
 }
 
 .tab-link.active {
-    background-color: #e0a813;
+    background-color: rgb(53, 52, 52);
+   
 }
 
 .tab-link:hover {
-    background-color: #d1a00f; 
+    background-color: white;
+    color: black; 
+    border: #888 solid;
 }
 
 .tab-content {
@@ -62,7 +65,18 @@ label {
     color: #000;
 }
 
-input, textarea{
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+textarea{
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -73,16 +87,16 @@ input, textarea{
     font-size: 16px;
 }
 
-input::placeholder,
+.input-field::placeholder,
 textarea::placeholder {
     color: #888;
 }
 
-button{
+.submit-btn{
     width: 100%;
     padding: 14px;
-    background-color: #f5b915;
-    color: #000;
+    background-color: #000000;
+    color: #ffffff;
     border: none;
     border-radius: 6px;
     font-size: 18px;
@@ -92,8 +106,10 @@ button{
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #e0a813; 
+.submit-btn:hover {
+    border: #888 solid;
+    background-color: white; 
+    color: black;
 }
 
 @media (max-width: 480px) {
@@ -106,7 +122,7 @@ button:hover {
         font-size: 22px;
     }
 
-    button {
+    .submit-btn {
         font-size: 16px;
     }
 }

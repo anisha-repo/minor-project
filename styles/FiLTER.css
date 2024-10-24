@@ -5,13 +5,14 @@ body {
 }
 
 .filter-section {
-    width: 300px;
+    width:500px;
     height: min-content;
     border: 1px solid #ccc;
     padding: 10px;
 }
 
 .filter-heading {
+    width: 150px;
     font-weight: bold;
     padding: 10px;
     background-color: #f0f0f0;
@@ -26,6 +27,7 @@ body {
 }
 
 .filter-options label {
+    
     display: block;
     margin-bottom: 5px;
 }

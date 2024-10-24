@@ -1,5 +1,6 @@
 <?php
-include("includes/header.html");
+
+include("includes/header.php");
 include("includes/db.php");
 ?>
 <!DOCTYPE html>
@@ -13,48 +14,59 @@ include("includes/db.php");
 <body>
     <div class="container">
         <div class="tab-container">
-            <button class="tab-link active" onclick="openTab('signin')">Sign In</button>
-            <button class="tab-link" onclick="openTab('signup')">Sign Up</button>
+            <button class="tab-link active" onclick="openTab('signin', this)">Sign In</button>
+            <button class="tab-link" onclick="openTab('signup', this)">Sign Up</button>
         </div>
         <div id="signin" class="tab-content">
-            <form id="signinForm" onsubmit="return validateSignInForm()">
+            <form id="signinForm" action="sign-in.php" method="POST" onsubmit="return validateSignInForm()">
+                <div id="signin-error" class="error-message" style="color:red; text-align:center;">
+                <?php
+                    if (isset($_SESSION['error_message'])) {
+                        echo $_SESSION['error_message'];
+                        unset($_SESSION['error_message']); // Clear the message after displaying
+                    }
+                    ?>
+                </div> <!-- Error display -->   
                 <h2>Sign In to Your Account</h2>
 
                 <label for="email-signin">Email</label>
-                <input type="email" id="email-signin" name="email-signin" placeholder="Email" required>
+                <input class="input-field" type="email" id="email-signin" name="email-signin" placeholder="Email" required>
 
                 <label for="password-signin">Password</label>
-                <input type="password" id="password-signin" name="password-signin" placeholder="Password" required>
-
-                <button type="submit">Sign In</button>
+                <input class="input-field" type="password" id="password-signin" name="password-signin" placeholder="Password" required>
+                
+                
+                <button type="submit" class="submit-btn">Login</button>
+                
             </form>
         </div>
-        <div id="signup" class="tab-content" style="display: none;">
-            <form id="signupForm" onsubmit="return validateSignUpForm()">
+        <div id="signup" class="tab-content" >
+            <form id="signupForm" action="sign-up.php" method="POST" onsubmit="return validateSignUpForm()">
                 <h2>Join The Sneaker Crew</h2>
 
                 <label for="fname">First Name</label>
-                <input class="in-data" type="text" id="fname" name="fname" placeholder="First Name" required>
+                <input class="in-data input-field" type="text" id="fname" name="fname" placeholder="First Name" required>
 
                 <label for="lname">Last Name</label>
-                <input  class="in-data" type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <input  class="in-data input-field" type="text" id="lname" name="lname" placeholder="Last Name" required>
 
                 <label for="phone">Phone Number</label>
-                <input class="in-data" type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <input class="in-data input-field" type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
                 <label for="email-signup">Email</label>
-                <input class="in-data" type="email" id="email-signup" name="email-signup" placeholder="Email" required>
+                <input class="in-data input-field" type="email" id="email-signup" name="email-signup" placeholder="Email" required>
 
                 <label for="password-signup">Password</label>
-                <input class="in-data" type="password" id="password-signup" name="password-signup" placeholder="Password" required>
+                <input class="in-data input-field" type="password" id="password-signup" name="password-signup" placeholder="Password" required>
 
                 <label for="address">Address</label>
                 <textarea class="in-data" id="address" name="address" placeholder="Your Address" required></textarea>
 
-                <button class="kicks" type="submit">GET YOUR KICKS</button>
+                <button type="submit" class="submit-btn">GET YOUR KICKS</button>
             </form>
         </div>
     </div>
+   
 
     <script src="js/login.js"></script>
 </body>

@@ -1,3 +1,8 @@
+<?php
+session_start(); // Start the session at the very top
+
+// Include any necessary files or configurations here
+?>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/headerStyles.css"/>
@@ -18,10 +23,13 @@
             </div>
         </div>
         <div class="navItem">
-            <div class="add to cart"></div>
             <span>
-                <a href="login.php" target="_blank"><i class="fa-solid fa-user" style="color: #fafafa;  font-size: 40px;"></i></a>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true): ?>
+                    <a href="user_info.php"><i class="fa-solid fa-user" style="color: #fafafa; font-size: 40px;"></i></a>
+                <?php else: ?>
+                    <a href="login.php"><i class="fa-solid fa-user" style="color: #fafafa; font-size: 40px;"></i></a>
+                <?php endif; ?>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="" target="_blank">
                     <i class="fa-solid fa-heart" style="color: white; font-size: 40px;"></i>
                     </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
