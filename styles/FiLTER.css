@@ -4,13 +4,15 @@ body {
     padding:0;
 }
 
-.filter-section {
-    width:500px;
-    height: min-content;
+.filter-form {
+    grid-column: 1;
+    width: 15%; /* Set width relative to the parent grid */
+    height: 700px;
     border: 1px solid #ccc;
     padding: 10px;
+    margin-right: 2rem;
+   
 }
-
 .filter-heading {
     width: 150px;
     font-weight: bold;

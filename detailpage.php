@@ -162,7 +162,7 @@ $connection->close();
 
                           <!--add-to-cart-start-->
                         <div class="add-to-cart" id="addToCart">
-                                <button class="add_cart" type="submit" id="cart">
+                                <button class="add_cart" type="submit" id="cart" data-product-id="' . $row['product_id'] . '">
                                     <i class='fas fa-cart-plus'>&nbsp&nbspAdd to Cart</i>
                                 </button>
                                 <?php

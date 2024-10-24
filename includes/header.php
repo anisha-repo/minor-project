@@ -1,4 +1,4 @@
-<?php
+<a?php
 session_start(); // Start the session at the very top
 
 // Include any necessary files or configurations here
@@ -30,10 +30,10 @@ session_start(); // Start the session at the very top
                     <a href="login.php"><i class="fa-solid fa-user" style="color: #fafafa; font-size: 40px;"></i></a>
                 <?php endif; ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="" target="_blank">
+                <a href="">
                     <i class="fa-solid fa-heart" style="color: white; font-size: 40px;"></i>
                     </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <i class="fa-solid fa-cart-shopping"style="color: white; font-size: 40px;"></i>
+            <a href="Cart.php"><i class="fa-solid fa-cart-shopping"style="color: white; font-size: 40px;"></i></a>
 
             </span>
         </div>
@@ -41,19 +41,19 @@ session_start(); // Start the session at the very top
     <div class="navBottom" id="menu">
         <a href="index.php">HOME</a>
         <a href="converse.php" class="menuItem">NEW ARRIVAL</a>
-        <a href="nike.php" class="menuItem"> WOMEN</a>
-        <a href="puma.php" class="menuItem"> MEN </a>
+        <a href="photogallery.php" class="menuItem"> WOMEN</a>
+        <a href="photogallery.php" class="menuItem"> MEN </a>
         <div class="dropdown">
-            <button class="dropbtn">BRANDS</button>
+            <button class="dropbtn" style="font-size: 18px">BRANDS</button>
             <div class="dropdown-content">
              
-              <a href="nike.php">Nike</a>
-              <a href="puma.php">Puma</a>
-              <a href="converse.php">Converse</a>
-              <a href="adidas.php">Adidas</a>
-              <a href="newBalance.php">New Balance</a>
-              <a href="Crocs.php">Crocs</a>
-              <a href="Reebok.php">REEBOK</a>
+              <a href="brandsGallery.php?brand_id=101">Nike</a>
+              <a href="brandsGallery.php?brand_id=102">Puma</a>
+              <a href="brandsGallery.php?brand_id=105">Converse</a>
+              <a href="brandsGallery.php?brand_id=104">Adidas</a>
+              <a href="brandsGallery.php?brand_id=106">New Balance</a>
+              <a href="brandsGallery.php?brand_id=103">Crocs</a>
+              <a href="brandsGallery.php?brand_id=107">REEBOK</a>
                 
             </div>
           </div>
