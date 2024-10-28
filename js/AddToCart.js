@@ -1,73 +1,72 @@
-const cartItems = document.querySelectorAll(".cart-item");
-const subtotalElement = document.getElementById("subtotal");
-const totalElement = document.getElementById("total");
-const shippingCost = 10;
-
-function updateCartTotals() {
-  let subtotal = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const cartItems = document.querySelectorAll('.quantity-input');
 
   cartItems.forEach(item => {
-    const price = parseFloat(item.querySelector("p").textContent.replace("$", ""));
-    const quantity = parseInt(item.querySelector("input").value);
-    subtotal += price * quantity;
+      item.addEventListener('change', function () {
+          const productId = this.dataset.id;
+          const quantity = parseInt(this.value);
+          // Send AJAX request to update the cart on the server
+          updateCart(productId, quantity);
+      });
   });
 
-  subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-  const total = subtotal + shippingCost;
-  totalElement.textContent = `$${total.toFixed(2)}`;
-}
-
-cartItems.forEach(item => {
-  const decreaseButton = item.querySelector(".decrease");
-  const increaseButton = item.querySelector(".increase");
-  const quantityInput = item.querySelector("input");
-  const removeButton = item.querySelector(".remove-btn");
-
-  decreaseButton.addEventListener("click", () => {
-    let quantity = parseInt(quantityInput.value);
-    if (quantity > 1) {
-      quantityInput.value = quantity - 1;
-      updateCartTotals();
-    }
+  document.querySelectorAll('.remove-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+          const productId = this.dataset.id;
+          removeFromCart(productId);
+      });
   });
 
-  increaseButton.addEventListener("click", () => {
-    let quantity = parseInt(quantityInput.value);
-    quantityInput.value = quantity + 1;
-    updateCartTotals();
+  document.querySelectorAll('.increase').forEach(btn => {
+      btn.addEventListener('click', function () {
+          const productId = this.dataset.id;
+          const input = document.querySelector(`input[data-id='${productId}']`);
+          input.value = parseInt(input.value) + 1;
+          updateCart(productId, input.value);
+      });
   });
 
-  quantityInput.addEventListener("input", updateCartTotals);
-
-  removeButton.addEventListener("click", () => {
-    item.remove();
-    updateCartTotals();
+  document.querySelectorAll('.decrease').forEach(btn => {
+      btn.addEventListener('click', function () {
+          const productId = this.dataset.id;
+          const input = document.querySelector(`input[data-id='${productId}']`);
+          if (parseInt(input.value) > 1) {
+              input.value = parseInt(input.value) - 1;
+              updateCart(productId, input.value);
+          }
+      });
   });
+
+  function updateCart(productId, quantity) {
+      // Implement AJAX request to update the cart in the session
+      // Example:
+      fetch('update_cart.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ product_id: productId, quantity: quantity })
+      })
+      .then(response => response.json())
+      .then(data => {
+          // Update the total and subtotal based on the response
+          // Update UI as needed
+      });
+  }
+
+  function removeFromCart(productId) {
+      // Implement AJAX request to remove item from cart
+      fetch('remove_from_cart.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ product_id: productId })
+      })
+      .then(response => response.json())
+      .then(data => {
+          // Handle the UI update after removal
+          // Optionally reload the cart display
+      });
+  }
 });
-
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-            const productId = this.getAttribute('data-product-id');
-
-            fetch('add_to_cart.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'product_id=' + productId
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Product added to cart!');
-                    // Optionally, update the cart count or UI
-                } else {
-                    alert('Failed to add product to cart.');
-                }
-            });
-        });
-    });
-
-
-
-updateCartTotals();

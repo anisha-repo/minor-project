@@ -2,6 +2,10 @@
 
 include("includes/header.php");
 include("includes/db.php");
+
+// After validating user credentials
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -55,11 +55,13 @@ $result = $stmt->get_result(); // Get the result set
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="product">';
                 echo '<span>';
-                echo '<div class="wishlist-icon">';
-                    echo '<button class="wish" data-product-id="' . $row['product_id'] . '">'; // Use data attribute for product ID
-                    echo ' <i class="fa-solid fa-heart fa-2xl wishlist" data-product-id="' . $row['product_id'] . '"></i>'; // Same here
-                    echo '</button>';
-                 echo '</div>';
+                echo  ' <form action="add_to_wishlist.php" method="POST">';
+                echo ' <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">';
+                 echo '<div class="wishlist-icon">';
+                     echo '<button class="wish" data-product-id="' . $row['product_id'] . '">'; // Use data attribute for product ID
+                     echo ' <i class="fa-solid fa-heart fa-2xl wishlist" data-product-id="' . $row['product_id'] . '"></i>'; // Same here
+                     echo '</button>';
+                    echo '</form>' ;
                 echo '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['model']) . '"></a>';
                 echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
                 echo '<p>' . htmlspecialchars($row['model']) . '</p>';
@@ -74,7 +76,7 @@ $result = $stmt->get_result(); // Get the result set
     </div>
     </section>
 
-<script src="js/brandGallery.js"></script>
+<script></script>
 
 </body>
 </html>

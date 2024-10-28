@@ -4,17 +4,17 @@ include("includes/db.php"); // Database connection
 
 $categories = [
     'womens_shoes' => ['9', '7'], // 9 for Women's Shoes, 7 for Unisex Shoes
-    'mens_shoes' => ['6', '8'],    // 6 for Men's Shoes, 8 for Unisex Shoes
+    'mens_shoes' => ['6', '7'],    // 6 for Men's Shoes, 8 for Unisex Shoes
     // Add other categories as needed
 ];
 
 // Get the category from the URL parameter
-$category = isset($_GET['category_id']) ? $_GET['category_id'] : 'womens_shoes';
+$category = isset($_GET['category_id']) ? $_GET['category_id'] : '';
 
-if ($category === 'womens_shoes') {
+if ($category =='9') {
     $category_ids = implode(',', $categories['womens_shoes']); // "9,7"
-} elseif ($category === 'mens_shoes') {
-    $category_ids = implode(',', $categories['mens_shoes']); // "6,8"
+} elseif ($category === '6') {
+    $category_ids = implode(',', $categories['mens_shoes']); // "6,7"
 } else {
     $category_ids = ''; // Handle other categories or set a default
 }
@@ -56,10 +56,13 @@ $result = $stmt->get_result(); // Get the result set
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="product">';
                 echo '<span>';
+              echo  ' <form action="add_to_wishlist.php" method="POST">';
+               echo ' <input type="hidden" name="product_id" value="'.$row['product_id'].'">';
                 echo '<div class="wishlist-icon">';
-                echo '<button class="wish" id="wishlistIcon">';
-                echo '<i class="fa-solid fa-heart fa-2xl" id="wishlist"></i>';
-                echo '</button>';
+                    echo '<button type="submit" class="wish" data-product-id="' . $row['product_id'] . '">'; // Use data attribute for product ID
+                    echo ' <i class="fa-solid fa-heart fa-2xl wishlist" data-product-id="' . $row['product_id'] . '"></i>'; // Same here
+                    echo '</button>';
+                   echo '</form>' ;
                 echo '</div>';
                 echo '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['model']) . '"></a>';
                 echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';

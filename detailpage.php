@@ -63,8 +63,8 @@ if ($result_product->num_rows > 0) {
 
 $currentProductId = isset($_GET['product_id']) ? (int)$_GET['product_id'] : 0;;
 
-// Get the current product's category
-$result = $connection->query("SELECT Brand_id FROM products WHERE product_id = $currentProductId");
+ //Get the current product's category
+$result = $connection->query("SELECT * FROM products WHERE 1");
 $currentProduct = $result->fetch_assoc();
 
 $sql  = "SELECT
@@ -79,7 +79,7 @@ $sql  = "SELECT
         FROM
             products p
         WHERE
-        product_id != $currentProductId LIMIT 5";
+        product_id != $currentProductId LIMIT 5"; 
 
   $result = $connection->query($sql);
 
@@ -162,16 +162,23 @@ $connection->close();
 
                           <!--add-to-cart-start-->
                         <div class="add-to-cart" id="addToCart">
-                                <button class="add_cart" type="submit" id="cart" data-product-id="' . $row['product_id'] . '">
-                                    <i class='fas fa-cart-plus'>&nbsp&nbspAdd to Cart</i>
-                                </button>
-                                <?php
+                       
+                        <form action="addtocart.php" method="POST">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                            <button class="add_cart" type="submit">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+
+                            <?php
                             
                             echo '<button class="wish"  id="wishlistIcon">';
                             echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist">';
                             echo'</i>';
                             echo '</button >';
                           ?>  
+                        </form>
+                        
+                       
                                  <p id="message"></p>
                                  
                         </div>

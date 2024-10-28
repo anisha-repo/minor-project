@@ -1,4 +1,4 @@
-<a?php
+<?php
 session_start(); // Start the session at the very top
 
 // Include any necessary files or configurations here
@@ -30,7 +30,7 @@ session_start(); // Start the session at the very top
                     <a href="login.php"><i class="fa-solid fa-user" style="color: #fafafa; font-size: 40px;"></i></a>
                 <?php endif; ?>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="">
+                <a href="wishlist.php">
                     <i class="fa-solid fa-heart" style="color: white; font-size: 40px;"></i>
                     </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             <a href="Cart.php"><i class="fa-solid fa-cart-shopping"style="color: white; font-size: 40px;"></i></a>
@@ -41,8 +41,8 @@ session_start(); // Start the session at the very top
     <div class="navBottom" id="menu">
         <a href="index.php">HOME</a>
         <a href="converse.php" class="menuItem">NEW ARRIVAL</a>
-        <a href="photogallery.php" class="menuItem"> WOMEN</a>
-        <a href="photogallery.php" class="menuItem"> MEN </a>
+        <a href="photogallery.php?category_id=9" class="menuItem"> WOMEN</a>
+        <a href="photogallery.php?category_id=6" class="menuItem"> MEN </a>
         <div class="dropdown">
             <button class="dropbtn" style="font-size: 18px">BRANDS</button>
             <div class="dropdown-content">

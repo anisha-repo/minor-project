@@ -23,7 +23,7 @@ include("includes/db.php"); // Database connection
         <li><a href="PROJECT/support page">SUPPORT</a></li>
         <li><a href="PROJECT/faq page">FAQ</a></li>
         <li><a href="PROJECT/helpline">HELPLINE</a></li>
-        <li><a href="PROJECT/our blog">OUR BLOG</a></li>
+        <li><a href="our blog/index.html">OUR BLOG</a></li>
         <li><a href="PROJECT/feedback page">FEEDBACK</a></li>
         <li><a href="PROJECT/log in page redesign">LOGOUT</a></li>
 </ul>
