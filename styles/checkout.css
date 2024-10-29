@@ -74,7 +74,7 @@ input[type="radio"] {
     padding: 12px;
     background-color: black;
     border: none;
-    color: #000000;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     border-radius: 6px;
@@ -83,7 +83,7 @@ input[type="radio"] {
 }
 
 .place-order:hover {
-    background-color: black;
+    background-color: gray;
 }
 
 .hidden {

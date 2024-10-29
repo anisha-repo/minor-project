@@ -70,12 +70,12 @@ $connection->close(); // Close the database connection
                  echo '<h3>' . htmlspecialchars($product['Brand_name']) . '</h3>';
                 echo '<p>' . htmlspecialchars($product['model']) . '</p>';
                 echo '<p>Price: Rs. ' . htmlspecialchars($product['original_price']) . '</p>';
+                echo'  <form action="remove_from_wishlist.php" method="POST">';
+                echo ' <input type="hidden" name="product_id" value="'.$product['product_id'].'">';
+                    echo' <button type="submit">Remove from Wishlist</button>';
+                  echo '</form>';
                 echo '</span>';
                 echo '</div>';
-              echo'  <form action="remove_from_wishlist.php" method="POST">';
-              echo ' <input type="hidden" name="product_id" value="'.$product['product_id'].'">';
-                  echo' <button type="submit">Remove from Wishlist</button>';
-                echo '</form>';
                     
                     ?>
                     

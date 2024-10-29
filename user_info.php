@@ -25,7 +25,7 @@ include("includes/db.php"); // Database connection
         <li><a href="PROJECT/helpline">HELPLINE</a></li>
         <li><a href="our blog/index.html">OUR BLOG</a></li>
         <li><a href="PROJECT/feedback page">FEEDBACK</a></li>
-        <li><a href="PROJECT/log in page redesign">LOGOUT</a></li>
+        <li><a href="logout.php">LOGOUT</a></li>
 </ul>
     </div>
 </body>

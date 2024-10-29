@@ -132,7 +132,14 @@ $connection->close();
                                 <!--shoe-size-start-->
 
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group" id="sizeSelect">
+                               <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btnradio1" value="5">5</label>
+
                               <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btnradio1" value="6">6</label>
+
+                        
+                             <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                               <label class="btn btn-outline-primary" for="btnradio1" value="7">7</label>
 
                               <input type="radio" onclick="check()"class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
