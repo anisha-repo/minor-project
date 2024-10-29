@@ -69,12 +69,12 @@ input[type="radio"] {
     color: #999;
 }
 
-button {
+.place-order {
     width: 100%;
     padding: 12px;
-    background-color: #f5b915;
+    background-color: black;
     border: none;
-    color: #000000;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     border-radius: 6px;
@@ -82,8 +82,8 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #e0a813;
+.place-order:hover {
+    background-color: gray;
 }
 
 .hidden {
@@ -100,7 +100,7 @@ button:hover {
         font-size: 22px;
     }
 
-    button {
+    .place-order {
         font-size: 16px;
     }
 }

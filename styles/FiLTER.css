@@ -4,14 +4,17 @@ body {
     padding:0;
 }
 
-.filter-section {
-    width: 300px;
-    height: min-content;
+.filter-form {
+    grid-column: 1;
+    width: 15%; /* Set width relative to the parent grid */
+    height: 700px;
     border: 1px solid #ccc;
     padding: 10px;
+    margin-right: 2rem;
+   
 }
-
 .filter-heading {
+    width: 150px;
     font-weight: bold;
     padding: 10px;
     background-color: #f0f0f0;
@@ -26,6 +29,7 @@ body {
 }
 
 .filter-options label {
+    
     display: block;
     margin-bottom: 5px;
 }

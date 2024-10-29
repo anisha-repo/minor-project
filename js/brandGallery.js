@@ -37,8 +37,54 @@ function addToCart(id) {
     document.getElementById('cart-count').textContent = cartCount;
     alert(`Added ${sneakers.find(sneaker => sneaker.id === id).name} to the cart!`);
 }
+$(document).ready(function() {
+    alert("Document is ready!");
+  });
+document.querySelectorAll('.wish').forEach(button => {
+    button.addEventListener('click', function() { 
+        console.log('clicked')
+        const productId = this.getAttribute('data-product-id');
+        const heartIcon = document.getElementById(`wishlist ${productId}`);
+        
+        // Toggle the 'active' class for heart icon
+        heartIcon.classList.toggle('active');
 
-
+        // Fetch request to add/remove from wishlist
+        if (heartIcon.classList.contains('active')) {
+            // If heart is active, send a request to add to wishlist
+            fetch('add_to_wishlist.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `product_id=${productId}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('message').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        } else {
+            // If heart is inactive, send a request to remove from wishlist
+            fetch('remove_from_wishlist.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `product_id=${productId}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('message').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    });
+});
 
 
 window.onload = loadProducts;

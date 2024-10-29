@@ -1,0 +1,91 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Body Styling */
+  body {
+    height: 50vh;
+    background-color: #1d2634;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Main Content */
+  .main-content {
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  .main-content h1{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    margin: 20px
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .search-bar {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #292929;
+    color: #fff;
+    width: 200px;
+  }
+  
+  .search-bar::placeholder {
+    color: #bbb;
+  }
+  
+
+  
+  /* Customer Table */
+  .customer-table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  .customer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .customer-table th,
+  .customer-table td {
+    padding: 12px 15px;
+    border: 1px solid #444;
+    text-align: left;
+  }
+  
+  .customer-table th {
+    background-color: #292929;
+  }
+  
+  .customer-table tr:nth-child(even) {
+    background-color: #1c1c1c;
+  }
+  
+  .customer-table tr:hover {
+    background-color: #3e3e3e;
+  }
+  

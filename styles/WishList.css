@@ -1,0 +1,98 @@
+/* Global Styles */
+
+  /* Wishlist Section */
+  .wishlist {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wishlist h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #wishlist-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .product-card {
+    background-color: #fafafa;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+  
+  .product-card h3 {
+    margin: 10px 0;
+  }
+  
+  .product-card button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .product-card button:hover {
+    background-color: #444;
+  }
+  
+  .product 
+  {   
+      border-radius: 5px;
+      align-items: center;
+      border: 2px solid white;
+      text-align: center;
+      margin-right: 2%;
+      margin-left: 2%;
+      padding-bottom: 5%;
+      right: 10px;
+  }
+  .product img {
+    background-color: #F4F4F4;
+    display: block;
+   height: 250px;
+    width: 300px;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    align-items: center;
+    object-fit: contain;
+    
+  }.products-container {
+    padding: 20px;
+    display: grid; /* Keep grid */
+    grid-template-columns: 1fr 3fr; /* Filter takes 1/4 of the width, product gallery takes 3/4 */
+    gap: 20px;/* Space between the form and the gallery */
+  
+  }
+  
+  .product-gallery 
+  {
+  
+    grid-column: 2;
+    width: auto; /* Allow the grid to control the width */
+    padding: 1rem; /* Add padding instead of margin */
+    margin-left: 0; /* Remove excess margin */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Sneaker Store</title>
-    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="styles/checkout.css">
 </head>
 <body>
     <div class="checkout-container">
@@ -73,10 +73,10 @@
                 </div>
             </div>
 
-            <button type="submit">Place Order</button>
+            <button class="place-order"type="submit">Place Order</button>
         </form>
     </div>
 
-    <script src="checkout.js"></script>
+    <script src="styles/checkout.css"></script>
 </body>
 </html>

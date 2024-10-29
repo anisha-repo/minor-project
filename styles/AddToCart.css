@@ -1,0 +1,143 @@
+*
+.cart-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+
+.item-details h2 {
+  margin-bottom: 5px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.quantity input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.remove-btn {
+  margin-left: auto;
+  background-color: rgb(0 0 0);
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 10px;
+}
+
+.cart-summary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: rgb(0 0 0 / 95%);;
+  margin-top: 10px;
+}
+
+.checkout-btn:hover {
+  background-color: darkgreen;
+}
+
+.footer-container
+{  height:30%;
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   background-color: beige;
+   margin-left:10px;
+   margin-right:10px;
+   align-items: center;
+   color:black;
+   background-color:white;
+   gap: 2rem;
+}
+
+
+.footer-container > div {
+  margin: 20px;
+  padding: 20px;
+}
+.footerLeft
+{
+ margin-left:20px;
+   display: flex;
+   gap: 10rem;
+}
+.footerLeft > div {
+  margin: 10px;
+  padding: 5px;
+  
+}
+.footerMenu >legend{
+  font-size:20px ;
+  text-align: center;
+}
+
+.footerMenu ul{
+   font-size: 13px;
+   list-style: none;
+
+}
+
+.fList{
+  align-items: initial;
+}
+.footerRight
+{ margin-right: 7rem;
+
+   display: flex;
+  flex-direction: column;
+}
+.footerRight > div {
+  margin: 10px;
+  padding:5px;
+}
