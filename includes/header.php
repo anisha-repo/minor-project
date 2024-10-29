@@ -13,7 +13,7 @@ session_start(); // Start the session at the very top
     <div class="navTop" >
         <div class="navItem">
             <div class="navBar">
-            <span class="SOUL MATE">SOUL</br>MATE</span>
+            <span class="SOUL MATE">SOLE</br>MATE</span>
             </div>
         </div>
         <div class="navItem" >
