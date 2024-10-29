@@ -1,4 +1,4 @@
-<?php
+<a?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../admin/login.php");
@@ -32,15 +32,19 @@ include("../includes/db.php");
           <span class="material-icons-outlined">menu</span>
         </div>
         <div class="header-left">
-          <h1>SOLE MATE</h1>
+          <h1>SOLE
+            
+          MATE</h1>
         </div>
         <div class="profile-info">
          <div class="profile">
-          <p><b><!--Name here-->Soumya Sharma</b></p>
+          <p><b><!--Name here-->Admin</b></p>
           <p>Admin</p>
          </div>
          <div class="profile-photo">
+            <a href="../admin/logout.php">
           <span class="material-icons-outlined">account_circle</span> 
+          </a>
          </div>
         </div>
       </header>
@@ -63,7 +67,7 @@ include("../includes/db.php");
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="../admin/categories_page.php" target="_blank">
+            <a href="../admin/brands.php" target="_blank">
               <span class="material-icons-outlined">category</span> Categories
             </a>
           </li>
@@ -73,8 +77,18 @@ include("../includes/db.php");
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
-              <span class="material-icons-outlined">settings</span> Settings
+            <a href="../admin/Product_adding_form.php" >
+              <span class="material-icons-outlined"></span> Add Products
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="../admin/Brand_adding_page.php" >
+              <span class="material-icons-outlined"></span> Add brand
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="../admin/logout.php" >
+              <span class="material-icons-outlined"></span> log out
             </a>
           </li>
         </ul>
@@ -100,7 +114,7 @@ include("../includes/db.php");
           </div>
 
           <div class="card">
-            <a href="../admin/categories_page.php">
+            <a href="../admin/brands.php">
             <div class="card-inner">
               <h3>CATEGORIES</h3>
               <span class="material-icons-outlined">category</span>
@@ -154,6 +168,6 @@ include("../includes/db.php");
     <!-- ApexCharts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
     <!-- Custom JS -->
-    <script src="AdminPanel.js"></script>
+    <script src="../admin/AdminPanel.js"></script>
   </body>
 </html>

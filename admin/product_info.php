@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_product'])) {
     $stmt->execute();
 }
 
-
+// SQL to fetch products with their first image if available
 $sql = "SELECT 
             p.product_id, 
             p.Brand_name,
@@ -24,13 +24,16 @@ $sql = "SELECT
             (SELECT i.image_url 
              FROM productimages i 
              WHERE i.product_id = p.product_id 
-             LIMIT 1) AS image_url
-        FROM 
-            products p"; // Assuming each product has one main image or handling the display of the first image
+             LIMIT 1) AS image_url,
+            p.category_id,
+            p.stock
 
-// Fetch products
-$result = $connection->query("SELECT * FROM products");
+         
+        FROM 
+            products p";
+$result = $connection->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,16 +65,17 @@ $result = $connection->query("SELECT * FROM products");
         </div>
 
         <div class="product-info">
-            <?php while ($row = $result->fetch_assoc()) {
+            <?php while ($row = $result->fetch_assoc()) { ?>
                 <div class="product-card">
-                echo '<a href="detailpage.php?product_id=' . $row['product_id'] . '"><img src="' . htmlspecialchars($row['image_url']) . '" alt="' . htmlspecialchars($row['model']) . '"></a>';
-                echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
-                echo '<p>' . htmlspecialchars($row['model']) . '</p>';
-                echo '<p>Price: Rs. ' . htmlspecialchars($row['original_price']) . '</p>';
+                    <a href="detailpage.php?product_id=<?php echo $row['product_id']; ?>">
+                        <img src="<?php echo !empty($row['image_url']) ? '../'.htmlspecialchars($row['image_url']) : 'path/to/default-image.jpg'; ?>" alt="<?php echo htmlspecialchars($row['model']); ?>">
+                    </a>
+                    <h3><?php echo htmlspecialchars($row['Brand_name']); ?></h3>
                     <h2><?php echo htmlspecialchars($row['model']); ?></h2>
+                    <p>Price: Rs. <?php echo htmlspecialchars($row['original_price']); ?></p>
                     <p class="Product_ID">ID: <?php echo htmlspecialchars($row['product_id']); ?></p>
-                    <p class="category">Category: <?php echo htmlspecialchars($row['category']); ?></p>
-                    <p class="price">Price: $<?php echo htmlspecialchars($row['original_price']); ?></p>
+                    <p class="category">Category: <?php echo htmlspecialchars($row['category_id']); ?></p>
+                    <p class="price">Price: Rs. <?php echo htmlspecialchars($row['original_price']); ?></p>
                     <p class="stock-status">Stock: <span class="in-stock"><?php echo $row['stock'] > 0 ? 'In Stock' : 'Out of Stock'; ?></span></p>
                     <form action="" method="POST">
                         <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">

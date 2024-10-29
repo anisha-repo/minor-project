@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-bottom: 20px;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Form Styles */
+  input, button, select {
+    border-radius: 4px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form .dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    .col-sm-2 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  
+    .col-sm-10 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  
+    .btn {
+      width: 100%;
+      margin-top: 5px;
+    }
+  }

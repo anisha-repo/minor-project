@@ -1,3 +1,51 @@
+<?php
+// Include header and database connection
+include("includes/header.php");
+include("includes/db.php");// Ensure you have this for database connection
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payment-method'])) {
+    $user_id = $_SESSION['user_id'] ?? 1;  // use session or default to 1
+    $payment_method = $_POST['payment-method'];
+    $total_amount = $_POST['total_amount'] ?? 100.00;  // dynamically or default
+
+    // Prepare SQL statement
+    $sql = "INSERT INTO orders (user_id, payment_method, total_amount, card_number, card_name, card_expiry, card_cvv, bank_name, emi_bank, emi_tenure)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $connection->prepare($sql);
+
+    // Initialize variables
+    $card_number = $card_name = $card_expiry = $card_cvv = $bank_name = $emi_bank = $emi_tenure = null;
+
+    if ($payment_method === 'Card') {
+        $card_number = $_POST['card-number'] ?? null;
+        $card_name = $_POST['card-name'] ?? null;
+        $card_expiry = $_POST['card-expiry'] ?? null;
+        $card_cvv = $_POST['card-cvv'] ?? null;
+    } elseif ($payment_method === 'NetBanking') {
+        $bank_name = $_POST['bank-name'] ?? null;
+    } elseif ($payment_method === 'EMI') {
+        $emi_bank = $_POST['emi-bank'] ?? null;
+        $emi_tenure = $_POST['emi-tenure'] ?? null;
+    }
+
+    // Bind parameters and execute
+    $stmt->bind_param("issssssssi", $user_id, $payment_method, $total_amount, $card_number, $card_name, $card_expiry, $card_cvv, $bank_name, $emi_bank, $emi_tenure);
+
+    if ($stmt->execute()) {
+        $_SESSION['order_success'] = true;
+        header("Location: order_confirmation.php");
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+// Close connection
+$connection->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +58,9 @@
     <div class="checkout-container">
         <h2>Checkout</h2>
 
-        <form id="checkoutForm" onsubmit="return validateCheckoutForm()">
+        <form id="checkoutForm" action="checkout.php" method="POST" onsubmit="return validateCheckoutForm()">
             <h3>Select Payment Method</h3>
-
+  
             <div class="payment-option">
                 <input type="radio" id="cod" name="payment-method" value="COD" checked>
                 <label for="cod">Cash on Delivery (COD)</label>

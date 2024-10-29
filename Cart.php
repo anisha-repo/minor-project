@@ -68,7 +68,7 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
             <form action="clear-cart.php" method="POST">
                 <input type="submit" value="Clear Cart">
             </form>
-            <form action="checkout.php" method="POST">
+            <form action="adress.php" method="POST">
                 <input type="submit" value="Proceed to Checkout">
             </form>
         <?php endif; ?>

@@ -26,7 +26,7 @@
     </header>
 
     <main class="categories-container">
-      <h2>Categories</h2>
+      <h2>Brands</h2>
       <div class="categories-grid">
         <div class="category-card" onclick="filterCategory('Nike')">
           <img src="<!--NIKE LOGO HERE-->" alt="NIKE" />

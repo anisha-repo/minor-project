@@ -55,6 +55,5 @@ function validateCheckoutForm() {
         }
     }
 
-    alert("Order placed successfully!");
-    return true;
+   
 }

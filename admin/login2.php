@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_result($user_id,$user_name, $hashed_password); // Fetch user_id and password
             $stmt->fetch();
 
-            echo $password;
-            echo $hashed_password;
+           
 
             if (password_verify($password, $hashed_password)) {
                 // Set session variables
