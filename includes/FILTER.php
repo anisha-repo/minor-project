@@ -8,11 +8,11 @@
     <div class="filter-section" >
         <i class="fa-solid fa-bars">&nbsp&nbsp&nbsp&nbsp&nbspFILTER</i>
     </br></br>
-    <form method="get" action="filterGallery.php">
+    <form method="get" action="filter.php">
         <div class="filter-heading" onclick="toggleFilter('gender-options')">Gender</div>
         <div class="filter-options" id="gender-options">
-            <label><input type="radio" name="gender" value="male"> men</label>
-            <label><input type="radio" name="gender" value="female"> women</label>
+            <label><input type="radio" name="gender" value="6"> men</label>
+            <label><input type="radio" name="gender" value="9"> women</label>
         </div>
 
         <div class="filter-heading" onclick="toggleFilter('size-options')">Size</div>
@@ -36,7 +36,7 @@
             <label><input type="checkbox" name="occasion" value="sports"> Sports</label>
             <label><input type="checkbox" name="occasion" value="slides"> Slides</label>
         </div>
-        <button type="submit">Apply Filters</button>
+        <button class="submit-filter" type="submit">Apply Filters</button>
     </form>
     </div>
 

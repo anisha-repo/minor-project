@@ -38,12 +38,12 @@ include("../includes/db.php");
         </div>
         <div class="profile-info">
          <div class="profile">
-          <p><b><!--Name here-->Admin</b></p>
+          
           <p>Admin</p>
          </div>
          <div class="profile-photo">
             <a href="../admin/logout.php">
-          <span class="material-icons-outlined">account_circle</span> 
+          Logout
           </a>
          </div>
         </div>
@@ -86,11 +86,7 @@ include("../includes/db.php");
               <span class="material-icons-outlined"></span> Add brand
             </a>
           </li>
-          <li class="sidebar-list-item">
-            <a href="../admin/logout.php" >
-              <span class="material-icons-outlined"></span> log out
-            </a>
-          </li>
+          
         </ul>
       </aside>
       <!-- End Sidebar -->
@@ -116,7 +112,7 @@ include("../includes/db.php");
           <div class="card">
             <a href="../admin/brands.php">
             <div class="card-inner">
-              <h3>CATEGORIES</h3>
+              <h3>Brands</h3>
               <span class="material-icons-outlined">category</span>
             </div>
             <h1>7</h1>

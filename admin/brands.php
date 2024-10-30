@@ -133,7 +133,7 @@
         </div>
         <div class="category-card" onclick="filterCategory('Add New Category')">
           <img src="<!--PLUS SIGN HERE-->" alt="ADD NEW CATEGORY" />
-          <h3>Add New Category</h3>
+        <a href="../admin/Brand_adding_page.php">  <h3>Add New Category</h3></a>
         </div>
       </div>
     </main>

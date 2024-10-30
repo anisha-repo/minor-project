@@ -37,3 +37,13 @@ body {
 .filter-options input {
     margin-right: 5px;
 }
+.submit-filter{
+    width: 100px;
+    background-color: black;
+    color: white;
+}
+.submit-filter:hover{
+    background-color: rgb(44, 42, 42);
+    color: white;
+    
+}

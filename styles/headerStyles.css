@@ -34,7 +34,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 300px;
-  height: 15px;
+  height: 25px;
   border-radius: 10px;
   background-color: gray;
   padding: 10px 20px;
@@ -45,6 +45,10 @@ nav {
   border: none;
   background-color: transparent;
   font-size: 20px;
+  height: 30px;
+ margin-bottom: auto;
+ flex: 1;
+  
 }
 
 .searchInput::placeholder {

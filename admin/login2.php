@@ -29,9 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit(); // Ensure to call exit after the redirect
             } else {            
                 $_SESSION['error_message'] = 'Incorrect email or password. Please try again.';
+                header("Location: ../admin/index.php");
+                exit();
             }
         } else {
             $_SESSION['error_message'] = 'No user found with that email.';
+            header("Location: ../admin/index.php");
+            exit();
         }
     } else {
         $_SESSION['error_message'] = 'Error executing query: ' . $stmt->error;

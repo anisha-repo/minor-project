@@ -26,7 +26,7 @@ if (isset($_SESSION['order_success']) && $_SESSION['order_success']) {
             top: 100px;
             width: 50%;
             height: 50%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: whitesmoke;
             align-items: center;
             justify-content: center;
         }

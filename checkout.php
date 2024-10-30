@@ -3,10 +3,11 @@
 include("includes/header.php");
 include("includes/db.php");// Ensure you have this for database connection
 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payment-method'])) {
     $user_id = $_SESSION['user_id'] ?? 1;  // use session or default to 1
     $payment_method = $_POST['payment-method'];
-    $total_amount = $_POST['total_amount'] ?? 100.00;  // dynamically or default
+    $total_amount = $_POST['total_amount'] ?? 100;  // dynamically or default
 
     // Prepare SQL statement
     $sql = "INSERT INTO orders (user_id, payment_method, total_amount, card_number, card_name, card_expiry, card_cvv, bank_name, emi_bank, emi_tenure)
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payment-method'])) {
 
     if ($stmt->execute()) {
         $_SESSION['order_success'] = true;
-        header("Location: order_confirmation.php");
+        header("Location:THANK YOU PAGE.php ");
         exit();
     } else {
         echo "Error: " . $stmt->error;
@@ -125,6 +126,6 @@ $connection->close();
         </form>
     </div>
 
-    <script src="styles/checkout.css"></script>
+    <script src="js/checkout.js"></script>
 </body>
 </html>

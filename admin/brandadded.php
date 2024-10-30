@@ -1,7 +1,7 @@
 
 <?php 
 
-
+session_start();
 // Include the database connection
 include '../includes/db.php';
 
@@ -17,7 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO `brand`(`brand_id`, `brand_name`) 
             VALUES ( '$brand', $brand_id)";
     if ($connection->query($sql) === TRUE) {
-      echo "brand added successfully!";
+    
+      header("location:  ../admin/Brand_adding_page.php ");
+     exit();
   } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($connection);
   }

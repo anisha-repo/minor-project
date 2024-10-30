@@ -16,17 +16,20 @@ include("includes/db.php"); // Database connection
     <div class="list-box">
         <ul class="list">
         <li><a href="customer-profile.php">CUSTOMER PROFILE</a></li>
-        <li><a href="PROJECT/my orders">MY ORDERS</a></li>
+        <li><a href="myorders.php">MY ORDERS</a></li>
         <li><a href="order-details.php">ORDER DETAILS</a></li>
-        <li><a href="PROJECT/refund policy">REFUND POLICY</a></li>
+        <li><a href="refund.php">REFUND POLICY</a></li>
         <li><a href="privacy.php">PRIVACY POLICY</a></li>
-        <li><a href="PROJECT/support page">SUPPORT</a></li>
-        <li><a href="PROJECT/faq page">FAQ</a></li>
+        <li><a href="support.php">SUPPORT</a></li>
+        <li><a href="faq.php">FAQ</a></li>
         <li><a href="helpline.php">HELPLINE</a></li>
         <li><a href="our blog/index.html">OUR BLOG</a></li>
-        <li><a href="PROJECT/feedback page">FEEDBACK</a></li>
-        <li><a href="log.php">LOGOUT</a></li>
+        <li><a href="feedback.php">FEEDBACK</a></li>
+        <li><a href="logout.php">LOGOUT</a></li>
 </ul>
     </div>
+    <?php
+    include("includes/footer.php");
+    ?>
 </body>
 </html>

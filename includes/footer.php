@@ -6,9 +6,9 @@
     <div class="footerLeft" >
         <div class="footerMenu" >
            <h3><legend class="fMenuTitle">About Us</legend></h3>
-            <ul class="fList">
-                <li class="fListItem">Company</li>
-                <li class="fListItem">Contact</li>
+            
+              <a href="company.php"> <li class="fListItem">Company</li></a>
+              <a href="contact.php"><li class="fListItem">Contact</li></a>
                 <li class="fListItem">Carrers</li>
                 <li class="fListItem">Affiliates</li>
                 <li class="fListItem">Stores</li>
@@ -17,11 +17,11 @@
         <div class="footerMenu" >
            <h3><legend class="fMenuTitle">Useful Links</legend></h3>
             <ul class="fList">
-                <li class="fListItem">Support</li>
-                <li class="fListItem">Refund</li>
-                <li class="fListItem">FAQ</li>
-                <li class="fListItem">Feedback</li>
-                <li class="fListItem">Stores</li>
+               <a href="support.php"> <li class="fListItem">Support</li></a> 
+               <a  href="refund.php"> <li class="fListItem">Refund</li></a> 
+               <a  href="faq.php"> <li class="fListItem">FAQ</li></a> 
+               <a  href="feedback.phps"> <li class="fListItem">Feedback</li></a> 
+               <a  href="support.php"> <li class="fListItem">Stores</li></a> 
             </ul>
         </div><div class="footerMenu" >
             <h3><legend class="fMenuTitle">Products</legend></h3>

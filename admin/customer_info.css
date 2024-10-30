@@ -8,7 +8,7 @@
   
   /* Body Styling */
   body {
-    height: 50vh;
+   
     background-color: #1d2634;
     color: #fff;
     display: flex;
@@ -19,7 +19,7 @@
   /* Main Content */
   .main-content {
     width: 80%;
-    max-width: 800px;
+    max-width:max-content ;
     padding: 20px;
   }
   .main-content h1{

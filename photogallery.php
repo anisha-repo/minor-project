@@ -49,7 +49,7 @@ $result = $stmt->get_result(); // Get the result set
 <body>
 
 <section class="products-container">
-    <?php include("includes/FILTER.html"); ?>
+    <?php include("includes/FILTER.php"); ?>
     <div class="product-gallery">
         <?php
         if ($result->num_rows > 0) {
@@ -77,7 +77,9 @@ $result = $stmt->get_result(); // Get the result set
         ?>
     </div>
 </section>
-
+<?php
+    include("includes/footer.php");
+    ?>
 <script src="adidaslayout.js"></script>
 
 </body>

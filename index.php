@@ -1,6 +1,6 @@
 <?php
 
-include("includes/header.php");
+ include("includes/header.php");
  include("includes/db.php");
 
 ?>
@@ -25,6 +25,7 @@ include("includes/header.php");
                     <button class="buyButton">BUY NOW!</button>
                 </a>
             </div>
+        
             <div class="sliderItem" >
                 <img src="imgs/PUMA.png" alt="image 2" class="sliderImg" >
                 <div class="sliderBg"></div>
@@ -62,8 +63,10 @@ include("includes/header.php");
                 </a>
             </div>
         </div>
-        <button class="prev" onclick="changeSlider(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+         <!-- Left button for previous slide -->
+         <button class="sliderButton left">‹</button>
+            <!-- Right button for next slide -->
+            <button class="sliderButton right">›</button>
     </div>
 
     <div class="features">
@@ -166,7 +169,7 @@ include("includes/header.php");
         </div>
     </div>
    <?php
-    include("includes/footer.html");
+    include("includes/footer.php");
     ?>
 
     <script src="js/script.js"></script>

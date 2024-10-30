@@ -92,34 +92,6 @@ menuItems.forEach((item, index) => {
     //change the current slide
     wrapper.style.transform = `translateX(${-100 * index}vw)`;
 
-    //changes in slide button
-    let slideIndex = 0;
-    showSlide(slideIndex);
-
-function changeSlide(n) {
-    showSlide(slideIndex += n);
-}
-
-function showSlide(index) {
-    let sliderItem = document.getElementsByClassName("sliderItem");
-    
-    // Reset index if it's out of bounds
-    if (index >= sliderItem.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = sliderItem.length - 1;
-    }
-
-    // Hide all images
-    for (let i = 0; i < sliderItem.length; i++) {
-      sliderItem[i].classList.remove("active");
-    }
-
-    // Show the active image
-    sliderItem[slideIndex].classList.add("active");
-}
-
-
     //change the choosen product
     choosenProduct = products[index];
 
@@ -163,3 +135,27 @@ productButton.addEventListener("click", () => {
 close.addEventListener("click", () => {
   payment.style.display = "none";
 });
+
+//slidder slide button//
+    const sliderWrapper = document.querySelector('.sliderWrapper');
+    const sliderItems = document.querySelectorAll('.sliderItem');
+    let currentIndex = 0; // Start at the first slide
+    const totalSlides = sliderItems.length;
+
+    // Function to move the slider based on the current index
+    function moveSlider(index) {
+        const offset = -index * 100; // Move the slider one step (100% width)
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Move to the next slide (right button)
+    function nextSlide() {
+        if (currentIndex < totalSlides - 1) {  // Check if not on the last slide
+            currentIndex++;  // Move to the next slide
+            moveSlider(currentIndex);
+        }
+    }
+
+    // Event listener for the right button
+    document.querySelector('.sliderButton.right').addEventListener('click', nextSlide);
+

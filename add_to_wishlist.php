@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 include("includes/db.php"); // Database connection
+
 
 // Check if a product ID is provided
 if (isset($_POST['product_id'])) {

@@ -1,64 +1,55 @@
 <?php
 include("includes/header.php");
 include("includes/db.php");
+
+
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Get the user ID from session
+$user_id = $_SESSION['user_id'];
+
+// Fetch user profile data from the database
+$sql = "SELECT `user_id`, `first-name`, `last-name`, `phone-no`, `email`, `address`, `password`, `created-at`, `modified-at`  FROM `user` WHERE user_id = ?";
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Profile</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="styles/profile.css">
 </head>
 <body>
     <div class="container">
-        <h2> Profile</h2>
+        <h2>My Profile</h2>
 
-        <form id="profileForm" class="profile-form">
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" value="XYZ" required>
+        <?php if ($user): ?>
+            <div class="profile-info">
+                <p><strong>First Name:</strong> <?php echo htmlspecialchars($user['first-name']); ?></p>
+                <p><strong>Last Name:</strong> <?php echo htmlspecialchars($user['last-name']); ?></p>
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                <p><strong>Phone:</strong> <?php echo htmlspecialchars($user['phone-no']); ?></p>
+                <p><strong>Address:</strong> <?php echo htmlspecialchars($user['address']); ?></p>
+                <p><strong>Member Since:</strong> <?php echo date("M d, Y", strtotime($user['created-at'])); ?></p>
             </div>
-
-            <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" value="ZYX" required>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" value="123 SWAMI SOUTH" required>
-            </div>
-
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                    <option value="male" selected>Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" value="+123" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="XXXXXXXXXX" required>
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="action-btn">Save Changes</button>
-            </div>
-        </form>
-
-        <div id="successMessage" class="success-message" style="display: none;">
-            Profile updated successfully!
-        </div>
+            <button class="action-btn" onclick="window.location.href='edit_profile.php'">Edit Profile</button>
+        <?php else: ?>
+            <p>User information could not be found.</p>
+        <?php endif; ?>
     </div>
-
-    <script src="js/profile.js"></script>
 </body>
 </html>
+
+

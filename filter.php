@@ -3,9 +3,9 @@ include("includes/header.php");
 include("includes/db.php");
 
 // Initialize filter variables with validation
-$category_id = filter_input(INPUT_GET, 'category_id', FILTER_SANITIZE_STRING);
-$type = filter_input(INPUT_GET, 'type', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?? [];
-$price = filter_input(INPUT_GET, 'original_price', FILTER_SANITIZE_STRING);
+$category_id = filter_input(INPUT_GET, 'gender', FILTER_SANITIZE_STRING);
+$type = filter_input(INPUT_GET, 'occasion', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?? [];
+$price = filter_input(INPUT_GET, 'price', FILTER_SANITIZE_STRING);
 
 // Prepare the SQL query
 $sql = "SELECT 
@@ -27,7 +27,7 @@ $types = '';
 if ($category_id) {
     $sql .= " AND p.category_id = ?";
     $params[] = $category_id;
-    $types .= 's'; // Assuming category_id is a string
+    $types .= 'i'; // Assuming category_id is a string
 }
 
 if (!empty($type)) {
@@ -58,7 +58,8 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 ?>
-<!DOCTYPE html>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,7 +71,7 @@ $result = $stmt->get_result();
 <body>
 
 <section class="products-container">
-    <?php include("includes/FILTER.html"); ?>
+    <?php include("includes/FILTER.php"); ?>
     <div class="product-gallery">
         <?php
         if ($result->num_rows > 0) {
@@ -95,11 +96,15 @@ $result = $stmt->get_result();
         ?>
     </div>
 </section>
-
+<?php
+    include("includes/footer.php");
+    ?>
 <script src="js/brandGallery.js"></script>
 
 </body>
 </html>
+
+
 
 <?php
 $stmt->close();

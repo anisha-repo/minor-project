@@ -17,9 +17,12 @@ session_start(); // Start the session at the very top
             </div>
         </div>
         <div class="navItem" >
+
             <div class="search">
-                <input type="text" placeholder="Search..." class="searchInput" >
+            <form action="search.php" method="get" class="search-form">
+                <input type="text" name="query" placeholder="Search..." class="searchInput" >
                <button type="submit" style="background-color: gray; border: none;"><i class="fas fa-search" style="color: #ffffff; font-size: 15px;"></i></button>
+            </form>
             </div>
         </div>
         <div class="navItem">

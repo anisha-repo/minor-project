@@ -47,7 +47,7 @@ $result = $stmt->get_result(); // Get the result set
 
 <section class="products-container">
 <?php 
-    include("includes/FILTER.html"); 
+    include("includes/FILTER.php"); 
     ?>
     <div class="product-gallery">
         <?php
@@ -67,6 +67,14 @@ $result = $stmt->get_result(); // Get the result set
                 echo '<h3>' . htmlspecialchars($row['Brand_name']) . '</h3>';
                 echo '<p>' . htmlspecialchars($row['model']) . '</p>';
                 echo '<p>Price: Rs. ' . htmlspecialchars($row['original_price']) . '</p>';
+               echo '<div id="message" class="message" style="color:red; text-align:center;">';
+              
+                    if (isset($_SESSION['message'])) {
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']); // Clear the message after displaying
+                    }
+                    
+               echo' </div>'; 
                 echo '</span>';
                 echo '</div>';
             }
@@ -76,8 +84,10 @@ $result = $stmt->get_result(); // Get the result set
         ?>
     </div>
     </section>
-
-<script></script>
+    <?php
+    include("includes/footer.php");
+    ?>
+<script src ="brandsGallery.php"></script>
 
 </body>
 </html>

@@ -1,54 +1,3 @@
-<?php 
-
-
-// Include the database connection
-include '../includes/db.php';
-
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data and sanitize it
-    $productName = mysqli_real_escape_string($connection, $_POST['model']);
-    $brand = mysqli_real_escape_string($connection, $_POST['brand']);
-    $brand_id = mysqli_real_escape_string($connection, $_POST['brand_id']);
-    $productID = mysqli_real_escape_string($connection, $_POST['product_id']);
-    $price = mysqli_real_escape_string($connection, $_POST['original_price']);
-    $stockStatus = mysqli_real_escape_string($connection, $_POST['stock_status']);
-    $aboutProduct = mysqli_real_escape_string($conn, $_POST['about']);
-    $productDetails = mysqli_real_escape_string($conn, $_POST['description']);
-    // Handle file upload for product images
-    $targetDir = "../uploads/";
-    $targetFile = $targetDir . basename($_FILES["product_image"]["name"]);
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    
-    // Check if image file is a real image
-    $check = getimagesize($_FILES["product_image"]["tmp_name"]);
-    if ($check !== false) {
-        // Move file to target directory
-        if (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFile)) {
-            $imageUrl = $targetFile;
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-        }
-    } else {
-        echo "File is not an image.";
-    }
-
-    // Insert data into the products table
-    $sql = "INSERT INTO products (product_name, brand, brand_id,product_id, price, stock_status, about_product, product_details, image_url) 
-            VALUES ('$productName', '$brand', '$productID',$brand_id, '$price', '$stockStatus', '$aboutProduct', '$productDetails', '$imageUrl')";
-    
-    if ($connection->query($sql) === TRUE) {
-      echo "Product added successfully!";
-  } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($connection);
-  }
-}
-
-// Close database connection
-mysqli_close($connection);
-?>
-
-
 
 
 
@@ -72,7 +21,16 @@ mysqli_close($connection);
     </header>
 
     <main>
-    <form id="contactForm" action=" " method="POST" enctype="multipart/form-data">
+    <form id="contactForm" action="../admin/poductadded.php " method="POST" enctype="multipart/form-data">
+   
+    <div id="signin-error" class="error-message" style="color:red; text-align:center;">
+                <?php
+                    if (isset($_SESSION['error_message'])) {
+                        echo $_SESSION['error_message'];
+                        unset($_SESSION['error_message']); // Clear the message after displaying
+                    }
+                    ?>
+                </div>
     <div class="input-group mb-3">
         <label for="product_image" class="col-sm-2 col-form-label">Product Images</label>
         <input type="file" class="form-control" id="product_image" name="product_image" />
@@ -97,7 +55,7 @@ mysqli_close($connection);
     </div>
     <div class="input-group mb-3">
         <label for="brand" class="col-sm-2 col-form-label">Brand Id</label>
-        <select class="form-control" name="brand" id="brand">
+        <select class="form-control" name="brand_id" id="brand_id">
             <option value="101">Nike - 101</option>
             <option value="102">puma - 102</option>
             <option value="103">Crocs - 103</option>
@@ -124,6 +82,26 @@ mysqli_close($connection);
         <div class="col-sm-10">
             <textarea class="form-control" id="about_product" name="about_product" rows="3" placeholder="Enter a brief description of the product"></textarea>
         </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <label for="category_id" class="col-sm-2 col-form-label">category_id</label>
+        <select class="form-control" name="category_id" id="category_id">
+            <option value="6">Men </option>
+            <option value="9">Women</option>
+            <option value="7">Unisex</option>
+            
+        </select>
+    </div>
+    <div class="input-group mb-3">
+        <label for="Type" class="col-sm-2 col-form-label">Type</label>
+        <select class="form-control" name="Type" id="Type">
+            <option value="Casuals ">Casuals </option>
+            <option value="Sports">Sports</option>
+            <option value="Slides">Slides</option>
+            <option value="Clogs">Clogs</option>
+            
+        </select>
     </div>
 
     <!-- New text area for Product Details -->
