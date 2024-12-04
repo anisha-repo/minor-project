@@ -101,3 +101,33 @@ footer {
         text-align: left;
     }
 }
+/* Style for the "You need to be logged in" message */
+.login-message {
+    background-color:red;  /* Light yellow background for attention */
+    color: #856404;             /* Dark yellow text color */
+    border: 1px solid black;  /* Light yellow border */
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Link styling */
+.login-message a {
+    color: #004085; /* Dark blue for the login link */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-message a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Make it responsive for smaller screens */
+@media (max-width: 768px) {
+    .login-message {
+        font-size: 14px;
+    }
+}

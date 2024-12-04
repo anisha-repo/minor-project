@@ -17,7 +17,6 @@ include("includes/db.php"); // Database connection
         <ul class="list">
         <li><a href="customer-profile.php">CUSTOMER PROFILE</a></li>
         <li><a href="myorders.php">MY ORDERS</a></li>
-        <li><a href="order-details.php">ORDER DETAILS</a></li>
         <li><a href="refund.php">REFUND POLICY</a></li>
         <li><a href="privacy.php">PRIVACY POLICY</a></li>
         <li><a href="support.php">SUPPORT</a></li>

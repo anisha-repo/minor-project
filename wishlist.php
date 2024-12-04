@@ -81,7 +81,7 @@ $connection->close(); // Close the database connection
                     
             <?php endforeach; ?>
         <?php else: ?>
-            <p>Your wishlist is empty.</p>
+            <h4>Your wishlist is empty.</h4>
         <?php endif; ?>
     </ul>
 </div>

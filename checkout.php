@@ -1,46 +1,101 @@
 <?php
 // Include header and database connection
 include("includes/header.php");
-include("includes/db.php");// Ensure you have this for database connection
+include("includes/db.php");
 
+function getCartItems($user_id, $connection) {
+    // Retrieve cart items for the user from the cart_items table
+    $sql = "SELECT ci.id, ci.product_id, ci.quantity, p.model, p.original_price 
+            FROM cart_item ci
+            JOIN products p ON ci.product_id = p.product_id
+            WHERE ci.user_id = ?";
+    
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("i", $user_id);  // Bind user_id parameter
+    $stmt->execute();
+    
+    // Fetch all cart items
+    $result = $stmt->get_result();
+    $cartItems = [];
+    
+    while ($row = $result->fetch_assoc()) {
+        $cartItems[] = $row;
+    }
+    
+    return $cartItems;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['payment-method'])) {
-    $user_id = $_SESSION['user_id'] ?? 1;  // use session or default to 1
-    $payment_method = $_POST['payment-method'];
-    $total_amount = $_POST['total_amount'] ?? 100;  // dynamically or default
-
-    // Prepare SQL statement
-    $sql = "INSERT INTO orders (user_id, payment_method, total_amount, card_number, card_name, card_expiry, card_cvv, bank_name, emi_bank, emi_tenure)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $connection->prepare($sql);
-
-    // Initialize variables
-    $card_number = $card_name = $card_expiry = $card_cvv = $bank_name = $emi_bank = $emi_tenure = null;
-
-    if ($payment_method === 'Card') {
-        $card_number = $_POST['card-number'] ?? null;
-        $card_name = $_POST['card-name'] ?? null;
-        $card_expiry = $_POST['card-expiry'] ?? null;
-        $card_cvv = $_POST['card-cvv'] ?? null;
-    } elseif ($payment_method === 'NetBanking') {
-        $bank_name = $_POST['bank-name'] ?? null;
-    } elseif ($payment_method === 'EMI') {
-        $emi_bank = $_POST['emi-bank'] ?? null;
-        $emi_tenure = $_POST['emi-tenure'] ?? null;
-    }
-
-    // Bind parameters and execute
-    $stmt->bind_param("issssssssi", $user_id, $payment_method, $total_amount, $card_number, $card_name, $card_expiry, $card_cvv, $bank_name, $emi_bank, $emi_tenure);
-
-    if ($stmt->execute()) {
-        $_SESSION['order_success'] = true;
-        header("Location:THANK YOU PAGE.php ");
+    // Ensure user is logged in and retrieve user ID
+  
+    $user_id = $_SESSION['user_id'] ?? 1;  // Default to user ID 1 if not logged in
+    
+    // Get user address and phone number
+    $userAddress = trim($_POST['user-address'] ?? '');
+   
+    $userPhoneNumber = trim($_POST['user-phone-number'] ?? '');
+    
+    
+    if (empty($userAddress) || empty($userPhoneNumber)) {
+        echo "Address and Phone Number are required.";
+        var_dump($_POST); 
+        echo "User Address: " . htmlspecialchars($userAddress) . "<br>";
+        echo "User Phone Number: " . htmlspecialchars($userPhoneNumber) . "<br>";
         exit();
-    } else {
-        echo "Error: " . $stmt->error;
+    }
+    
+    // Retrieve cart items
+    $cartItems = getCartItems($user_id,$connection);
+    
+    if (empty($cartItems)) {
+        echo "Your cart is empty.";
+        exit();
     }
 
-    $stmt->close();
+    // Calculate total amount
+    $total_amount = 0;
+    foreach ($cartItems as $item) {
+        $total_amount += $item['quantity'] * $item['original_price'];
+    }
+
+    // Retrieve payment method
+    $payment_method = $_POST['payment-method'];
+
+    // Insert order into orders table
+    $orderSql = "INSERT INTO orders (user_id, total_amount, order_date, user_address, user_phone_number) 
+                 VALUES (?, ?, NOW(), ?, ?)";
+    $stmt = $connection->prepare($orderSql);
+    $stmt->bind_param("idss", $user_id, $total_amount, $userAddress, $userPhoneNumber);
+    $stmt->execute();
+    $orderId = $stmt->insert_id;
+
+
+    // Insert payment details into the database
+    $paymentSql = "INSERT INTO payments (user_id, order_id, payment_method, total_amount, payment_status, payment_date)
+                   VALUES (?, ?, ?, ?, 'Pending', NOW())";
+    $stmt = $connection->prepare($paymentSql);
+    $stmt->bind_param("iiss", $user_id, $orderId, $payment_method, $total_amount);
+    $stmt->execute();
+
+    // Insert cart items into order_items table
+    $orderItemsSql = "INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
+    $stmt = $connection->prepare($orderItemsSql);
+    
+    foreach ($cartItems as $item) {
+        $stmt->bind_param("iiid", $orderId, $item['product_id'], $item['quantity'], $item['original_price']);
+        $stmt->execute();
+    }
+
+    // Clear the cart after placing the order
+    $order_id = $stmt->insert_id;
+$sql = "DELETE FROM cart_item WHERE user_id = ?";
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+
+    // Redirect to thank you page
+    header("Location: THANK YOU PAGE.php?order_id=$orderId");
+    exit();
 }
 
 // Close connection
@@ -56,10 +111,24 @@ $connection->close();
     <link rel="stylesheet" href="styles/checkout.css">
 </head>
 <body>
-    <div class="checkout-container">
-        <h2>Checkout</h2>
 
+    <div class="checkout-container">
+   
+        <h2>Checkout</h2>
+        <div class="user-info">
         <form id="checkoutForm" action="checkout.php" method="POST" onsubmit="return validateCheckoutForm()">
+       
+  
+      <label for="user-address" class="user-info">Address</label>
+      <input class="user-info" type="text" id="user-address" name="user-address" placeholder="Enter your address">
+  
+      <label class="user-info" for="user-phone-number">Phone Number</label>
+      <input class="user-info" type="text" id="user-phone-number" name="user-phone-number" placeholder="Enter your phone number">
+  
+      
+
+</div>
+
             <h3>Select Payment Method</h3>
   
             <div class="payment-option">

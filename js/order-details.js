@@ -30,3 +30,6 @@ function viewOrderDetails(orderId) {
         .catch(error => console.error('Error fetching order details:', error));
 }
 
+function contactSupport() {
+    window.location.href = 'contact.php'; // Redirect to the contact us page
+}

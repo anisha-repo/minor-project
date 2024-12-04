@@ -59,13 +59,13 @@ $result = $connection->query($sql);
               Brands
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=101">Nike</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=102">Puma</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=104">Adidas</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=103">Crocs</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=106">New Balance</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=107">Reebok</a></li>
-                <li><a class="dropdown-item" href="admin/brandGallery.php?brand_id=105">Converse</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=101">Nike</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=102">Puma</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=104">Adidas</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=103">Crocs</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=106">New Balance</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=107">Reebok</a></li>
+                <li><a class="dropdown-item" href="../admin/brandGallery.php?brand_id=105">Converse</a></li>
             
             </u>
         </div>

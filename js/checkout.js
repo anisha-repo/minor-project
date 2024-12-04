@@ -57,3 +57,31 @@ function validateCheckoutForm() {
 
    
 }
+function validateCheckoutForm() {
+    // Get form field values
+    var address = document.getElementById('user-address').value;
+    var phoneNumber = document.getElementById('user-phone-number').value;
+
+    // Check if address and phone number are filled out
+    if (address === "" || phoneNumber === "") {
+        alert("Address and Phone Number are required.");
+        return false; // Prevent form submission
+    }
+
+    // Optionally, check for phone number format
+    var phoneRegex = /^[0-9]{10}$/; // Simple check for 10-digit phone number
+    if (!phoneRegex.test(phoneNumber)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false; // Prevent form submission
+    }
+
+    // If everything is valid, allow the form to submit
+    return true;
+}
+// Attach the validateAddressForm function to the Next button
+document.addEventListener("DOMContentLoaded", function() {
+    const nextButton = document.querySelector('.next-button');
+    if (nextButton) {
+        nextButton.addEventListener('click', validateAddressForm);
+    }
+});

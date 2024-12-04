@@ -172,18 +172,23 @@ $connection->close();
                        
                         <form action="addtocart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                            
+                            <!-- Quantity input -->
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" name="quantity" value="1" min="1" max="5">
+                            
                             <button class="add_cart" type="submit">
                                 <i class="fas fa-cart-plus"></i> Add to Cart
                             </button>
 
+                            <!-- Wishlist button -->
                             <?php
-                            
-                            echo '<button class="wish"  id="wishlistIcon">';
-                            echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist">';
-                            echo'</i>';
-                            echo '</button >';
-                          ?>  
+                            echo '<button class="wish" id="wishlistIcon">';
+                            echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist"></i>';
+                            echo '</button>';
+                            ?>
                         </form>
+
                         
                        
                                  <p id="message"></p>
@@ -264,7 +269,7 @@ $connection->close();
    <script src="js/cart.js"></script>
 
 <?php
- include("includes/footer.html");
+ include("includes/footer.php");
 ?>
 </body>
 </html>

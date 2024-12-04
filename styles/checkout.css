@@ -105,3 +105,29 @@ input[type="radio"] {
         font-size: 16px;
     }
 }
+.user-info {
+    margin-top:10px;
+    margin-bottom: 40px; /* Space below the user info section */
+}
+
+.user-info label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;/* Make labels bold */
+}
+
+.user-info input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;; /* Font size for input fields */
+}
+
+h3{
+    text-align: center;
+}

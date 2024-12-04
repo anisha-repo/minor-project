@@ -129,7 +129,7 @@ include("../includes/db.php");
             </a>
           </div>
           <div class="card">
-            <a href="order_info.html">
+            <a href="admin_orders.php">
             <div class="card-inner">
               <h3>ORDERS</h3>
               <span class="material-icons-outlined">shopping_bag</span>
