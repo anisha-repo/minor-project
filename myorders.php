@@ -54,7 +54,7 @@ $result = $stmt->get_result();
                         <td><?php echo $row['order_id']; ?></td>
                         <td><?php echo $row['order_date']; ?></td>
                         <td><?php echo $row['total_amount']; ?></td>
-                        <td><?php echo $row['model']; ?></td>
+                        <td><?php echo $row['products']; ?></td> <!-- Use 'products' instead of 'model' -->
                      <!--   <td><?php echo $row['status']; ?></td> -->
                         <td>
                             <a href="order-details.php?order_id=<?php echo $row['order_id']; ?>">View Details</a>

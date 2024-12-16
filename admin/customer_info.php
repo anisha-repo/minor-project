@@ -37,13 +37,17 @@ if (!$result) {
 </head>
 <body>
     <div class="main-content">
-        <h1>Sole Mate</h1>
-        <header>
-            <h1>Customer Orders Information</h1>
-            <div class="admin-info">
-                <input type="text" id="searchBar" placeholder="Search by Name" class="search-bar" />
-            </div>
-        </header>
+    <header class="header">
+      <h1>Sole Mate Store</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="dashboard.php">Dashboard</a></li>
+        
+          <li><a href="product_info.php">Products</a></li>
+          <li><a href="admin_orders.php">orders</a></li>
+        </ul>
+      </nav>
+    </header>
 
         <div class="customer-table-container">
             <table class="customer-table">

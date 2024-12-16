@@ -1,0 +1,142 @@
+/* General Styles */
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Header */
+.new-arrival-header {
+    text-align: center;
+    padding: 2em;
+    background: #aba2a2;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    animation: fadeIn 1.10s ease;
+}
+
+.new-arrival-header  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.new-arrival-header p {
+    font-size: 1.2em;
+    color: #aaa;
+} 
+    
+
+/* New Arrivals Section */
+.new-arrivals {
+    text-align: center;
+    padding: 3em 2em;
+    color: #fff;
+}
+
+.new-arrivals h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #fff;
+}
+
+/* Shoe Card Container */
+.shoe-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+}
+
+.shoe-card {
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    width: 180px;
+    padding: 1.5em;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.shoe-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.shoe-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+.shoe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.shoe-card img {
+    width: 100%;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.shoe-card:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+}
+
+.shoe-card h3 {
+    margin: 0.5em 0;
+    font-size: 1.4em;
+    color: #fff;
+}
+
+.shoe-card p {
+    font-size: 1.1em;
+    color: #aaa;
+}
+
+/* Coming Soon Section */
+.coming-soon {
+    text-align: center;
+    padding: 3em;
+    background: #111;
+    color: #fff;
+    border-top: 1px solid #333;
+    animation: fadeIn 1.5s ease;
+}
+
+.coming-soon h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.coming-soon p {
+    font-size: 1.3em;
+    color: #aaa;
+} 
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

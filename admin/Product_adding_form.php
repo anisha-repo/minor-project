@@ -31,10 +31,10 @@
                     }
                     ?>
                 </div>
-    <div class="input-group mb-3">
-        <label for="product_image" class="col-sm-2 col-form-label">Product Images</label>
-        <input type="file" class="form-control" id="product_image" name="product_image" />
-    </div>
+                <div class="input-group mb-3">
+    <label for="product_images" class="col-sm-2 col-form-label">Product Images</label>
+    <input type="file" class="form-control" id="product_images" name="product_images[]" multiple />
+</div>
     <div class="row mb-3">
         <label for="product_name" class="col-sm-2 col-form-label">Product Name</label>
         <div class="col-sm-10">
@@ -111,6 +111,19 @@
             <textarea class="form-control" id="product_details" name="product_details" rows="5" placeholder="Enter detailed information about the product"></textarea>
         </div>
     </div>
+    <div class="row mb-3">
+    <label for="arrival_date" class="col-sm-2 col-form-label">Arrival Date</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" id="arrival_date" name="arrival_date" value="<?php echo date('Y-m-d'); ?>" />
+    </div>
+</div>
+<div class="row mb-3">
+    <label for="is_new" class="col-sm-2 col-form-label">Mark as New Arrival</label>
+    <div class="col-sm-10">
+        <input type="checkbox" class="form-check-input" id="is_new" name="is_new" value="1" />
+        <label class="form-check-label" for="is_new">Yes</label>
+    </div>
+</div>
     <fieldset class="row mb-3">
         <legend class="col-form-label col-sm-2 pt-0">Stock Status</legend>
         <div class="col-sm-10">

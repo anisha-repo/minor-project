@@ -19,15 +19,17 @@ $orders_result = $stmt->get_result();
     <link rel="stylesheet" href="admin_orders.css">
 </head>
 <body>
-    <header>
-        <h1>Admin Panel</h1>
-        <nav>
-            <a href="dashboard.php">Dashboard</a>
-            <a href="admin_orders.php">Orders</a>
-            <!-- Add other admin pages here -->
-        </nav>
-    </header>
-
+<header class="header">
+      <h1>Sole Mate Store</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="dashboard.php">Dashboard</a></li>
+        
+          <li><a href="product_info.php">Products</a></li>
+          <li><a href="admin_orders.php">orders</a></li>
+        </ul>
+      </nav>
+</header>
     <main>
         <h2>All Orders</h2>
         <?php if ($orders_result->num_rows > 0): ?>

@@ -43,7 +43,7 @@ session_start(); // Start the session at the very top
     </div>
     <div class="navBottom" id="menu">
         <a href="index.php">HOME</a>
-        <a href="converse.php" class="menuItem">NEW ARRIVAL</a>
+        <a href="newarrival.php" class="menuItem">NEW ARRIVAL</a>
         <a href="photogallery.php?category_id=9" class="menuItem"> WOMEN</a>
         <a href="photogallery.php?category_id=6" class="menuItem"> MEN </a>
         <div class="dropdown">

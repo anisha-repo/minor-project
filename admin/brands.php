@@ -17,10 +17,10 @@
       <h1>Sole Mate Store</h1>
       <nav class="nav">
         <ul>
-          <li><a href="AdminPanel.html">Dashboard</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="product_info.html">Products</a></li>
-          <li><a href="customer_info.html">Customers</a></li>
+          <li><a href="dashboard.php">Dashboard</a></li>
+        
+          <li><a href="product_info.php">Products</a></li>
+          <li><a href="customer_info.php">Customers</a></li>
         </ul>
       </nav>
     </header>
