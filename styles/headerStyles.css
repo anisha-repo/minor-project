@@ -135,3 +135,90 @@ nav {
   background-color: white;
   color: black;
 }
+/* Responsive Media Queries */
+
+/* Mobile (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+  nav {
+    padding: 10px 20px;
+  }
+
+  .navTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navBar {
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+  }
+
+  .search {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .searchInput {
+    font-size: 16px;
+  }
+
+  .navBottom {
+    flex-direction: column;
+    font-size: medium;
+  }
+
+  .navBottom a {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  nav {
+    padding: 15px 30px;
+  }
+
+  .navBar {
+    height: 70px;
+    width: 70px;
+    font-size: 25px;
+  }
+
+  .search {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .searchInput {
+    font-size: 18px;
+  }
+
+  .navBottom {
+    font-size: large;
+  }
+
+  .navBottom a {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+/* Large Screens (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+  .navTop {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .navBottom {
+    font-size: xx-large;
+  }
+
+  .navBottom a {
+    font-size: 18px;
+    padding: 16px;
+  }
+}

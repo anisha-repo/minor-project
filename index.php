@@ -126,7 +126,7 @@
                 <input type="text" placeholder="yyyy" class="payInput sm">
                 <input type="text" placeholder="cvv" class="payInput sm">
             </div>
-            <button class="payButton" >Checkout !</button>
+            <button class="payButton" type="submit">Checkout !</button>
             <span class="close">X</span>
         </div>
     </div>

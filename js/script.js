@@ -136,26 +136,37 @@ close.addEventListener("click", () => {
   payment.style.display = "none";
 });
 
-//slidder slide button//
-    const sliderWrapper = document.querySelector('.sliderWrapper');
-    const sliderItems = document.querySelectorAll('.sliderItem');
-    let currentIndex = 0; // Start at the first slide
-    const totalSlides = sliderItems.length;
+const sliderWrapper = document.querySelector('.sliderWrapper');
+const sliderItems = document.querySelectorAll('.sliderItem');
+let currentIndex = 0; // Start at the first slide
+const totalSlides = sliderItems.length;
 
-    // Function to move the slider based on the current index
-    function moveSlider(index) {
-        const offset = -index * 100; // Move the slider one step (100% width)
-        sliderWrapper.style.transform = `translateX(${offset}%)`;
+// Function to move the slider based on the current index
+function moveSlider(index) {
+    const offset = -index * 100; // Move the slider one step (100% width)
+    sliderWrapper.style.transform = `translateX(${offset}%)`;
+}
+
+// Function to move to the next slide (right button)
+function nextSlide() {
+    if (currentIndex < totalSlides - 1) {  // Check if not on the last slide
+        currentIndex++;  // Move to the next slide
+        moveSlider(currentIndex);
     }
+}
 
-    // Move to the next slide (right button)
-    function nextSlide() {
-        if (currentIndex < totalSlides - 1) {  // Check if not on the last slide
-            currentIndex++;  // Move to the next slide
-            moveSlider(currentIndex);
-        }
+// Function to move to the previous slide (left button)
+function prevSlide() {
+    if (currentIndex > 0) {  // Check if not on the first slide
+        currentIndex--;  // Move to the previous slide
+        moveSlider(currentIndex);
     }
+}
 
-    // Event listener for the right button
-    document.querySelector('.sliderButton.right').addEventListener('click', nextSlide);
+// Event listener for the right button
+document.querySelector('.sliderButton.right').addEventListener('click', nextSlide);
+
+// Event listener for the left button
+document.querySelector('.sliderButton.left').addEventListener('click', prevSlide);
+
 

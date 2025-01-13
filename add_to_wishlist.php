@@ -1,55 +1,43 @@
 <?php
 session_start();
-
 include("includes/db.php"); // Database connection
 
-
-// Check if a product ID is provided
-if (isset($_POST['product_id'])) {
-    $product_id = intval($_POST['product_id']); // Ensure the product_id is an integer
-    // Initialize the wishlist session if it doesn't exist
-    if (!isset($_SESSION['wishlist'])) {
-        $_SESSION['wishlist'] = []; 
-    }
-
-    // Check if the product is already in the wishlist
-    if (!in_array($product_id, $_SESSION['wishlist'])) {
-        // Fetch product details from the database
-        $stmt = $connection->prepare("SELECT Brand_name, model FROM products WHERE product_id = ?");
-        if ($stmt === false) {
-            $_SESSION['error'] = "Database error: " . $connection->error;
-            header("Location: wishlist.php"); // Redirect back to wishlist page
-            exit();
-        }
-
-        $stmt->bind_param("i", $product_id);
-        if (!$stmt->execute()) {
-            $_SESSION['error'] = "Execution error: " . $stmt->error;
-            header("Location: wishlist.php");
-            exit();
-        }
-        
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            // Add product ID to wishlist
-            $_SESSION['wishlist'][] = $product_id;
-            $_SESSION['message'] = "Product added to wishlist.";
-        } else {
-            $_SESSION['error'] = "Product not found.";
-        }
-        
-        $stmt->close();
-    } else {
-        $_SESSION['message'] = "Product is already in your wishlist.";
-    }
-    $connection->close(); // Close the database connection
-
-    header("Location:wishlist.php"); // Redirect back to the wishlist page
-    exit();
-} else {
-    $_SESSION['error'] = "No product ID provided.";
-    header("Location: wishlist.php");
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['success' => false, 'message' => 'User is not logged in.']);
     exit();
 }
+
+// Check if product_id is passed
+if (isset($_POST['product_id'])) {
+    $product_id = $_POST['product_id'];
+    $user_id = $_SESSION['user_id']; // Get the logged-in user's ID
+
+    // Check if the product is already in the user's wishlist
+    $sql = "SELECT * FROM user_wishlist WHERE user_id = ? AND product_id = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ii", $user_id, $product_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 0) {
+        // Product is not in wishlist, so add it
+        $sql = "INSERT INTO user_wishlist (user_id, product_id) VALUES (?, ?)";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param("ii", $user_id, $product_id);
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true, 'message' => 'Product added to your wishlist.']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Failed to add product to wishlist.']);
+        }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Product is already in your wishlist.']);
+    }
+
+    $stmt->close();
+} else {
+    echo json_encode(['success' => false, 'message' => 'Product ID is missing.']);
+}
+
+$connection->close();
 ?>

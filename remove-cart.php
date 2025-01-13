@@ -6,9 +6,9 @@ if (isset($_POST['cart_id'])) {
     $cart_id = $_POST['cart_id'];
 
     // Delete the item from the cart table
-    $sql = "DELETE FROM cart_item WHERE cart_id = ?";
+    $sql = "DELETE FROM cart_item WHERE id = ?";
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("i", $cart_id);
+    $stmt->bind_param("i", $cart_id );
     $stmt->execute();
     $stmt->close();
 

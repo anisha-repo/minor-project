@@ -11,8 +11,8 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }// Database connection file
 
-$username = 'anisha'; // Set your desired username
-$password = 'anisha123'; // Set your desired password
+$username = 'admin'; // Set your desired username
+$password = 'admin123'; // Set your desired password
 
 // Hash the password for secure storage
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);

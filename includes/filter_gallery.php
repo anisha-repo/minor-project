@@ -8,13 +8,18 @@
     <div class="filter-section" >
         <i class="fa-solid fa-bars">&nbsp&nbsp&nbsp&nbsp&nbspFILTER</i>
     </br></br>
-    <form method="get" action="brandsGallery.php">
-    <input type="hidden" name="brand_id" value="<?php echo htmlspecialchars($brand_id); ?>">
+    <form method="get" action="photogallery.php">
+    <input type="hidden" name="category_id" value="<?php echo htmlspecialchars($category_id); ?>">
     
-        <div class="filter-heading" onclick="toggleFilter('gender-options')">Gender</div>
-        <div class="filter-options" id="gender-options">
-            <label><input type="radio" name="gender" value="6"> men</label>
-            <label><input type="radio" name="gender" value="9"> women</label>
+        <div class="filter-heading" onclick="toggleFilter('brands-options')">Brand</div>
+        <div class="filter-options" id="brands-options">
+            <label><input type="radio" name="brand" value="101"> Nike</label>
+            <label><input type="radio" name="brand" value="102"> Puma</label>
+            <label><input type="radio" name="brand" value="103"> Crocs</label>
+            <label><input type="radio" name="brand" value="104"> Adidas</label>
+            <label><input type="radio" name="brand" value="105"> Converse</label>
+            <label><input type="radio" name="brand" value="106"> New Balance</label>
+            <label><input type="radio" name="brand" value="107"> Reebok</label>
         </div>
 
         <div class="filter-heading" onclick="toggleFilter('size-options')">Size</div>

@@ -37,54 +37,58 @@ function addToCart(id) {
     document.getElementById('cart-count').textContent = cartCount;
     alert(`Added ${sneakers.find(sneaker => sneaker.id === id).name} to the cart!`);
 }
-$(document).ready(function() {
-    alert("Document is ready!");
-  });
-document.querySelectorAll('.wish').forEach(button => {
-    button.addEventListener('click', function() { 
-        console.log('clicked')
-        const productId = this.getAttribute('data-product-id');
-        const heartIcon = document.getElementById(`wishlist ${productId}`);
-        
-        // Toggle the 'active' class for heart icon
-        heartIcon.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function () {
+    const wishButtons = document.querySelectorAll('.wish');
+    
+    wishButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default form submission
 
-        // Fetch request to add/remove from wishlist
-        if (heartIcon.classList.contains('active')) {
-            // If heart is active, send a request to add to wishlist
+            const productId = button.getAttribute('data-product-id'); // Get the product ID
+            const formId = 'form-' + productId; // Get form ID dynamically
+            const form = document.getElementById(formId); // Get the form by ID
+
+            // Store the current scroll position
+            sessionStorage.setItem('scrollPosition', window.scrollY);
+
+            // Send AJAX request to add to wishlist
             fetch('add_to_wishlist.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: `product_id=${productId}`
+                body: new URLSearchParams(new FormData(form)) // Serialize form data
             })
-            .then(response => response.text())
+            .then(response => response.json()) // Expect a JSON response
             .then(data => {
-                document.getElementById('message').innerText = data;
+                if (data.success) {
+                    // Update heart icon class to reflect it's added to wishlist
+                    const heartIcon = button.querySelector('i');
+                    heartIcon.classList.add('added'); // Add 'added' class to color the heart
+                    heartIcon.classList.remove('fa-regular'); // Remove 'fa-regular'
+                    heartIcon.classList.add('fa-solid'); // Add 'fa-solid'
+                }
+                /* else {
+                    alert('Failed to add to wishlist.');
+                }*/
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        } else {
-            // If heart is inactive, send a request to remove from wishlist
-            fetch('remove_from_wishlist.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `product_id=${productId}`
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('message').innerText = data;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
+        });
     });
+
+    // Restore the scroll position after the page reloads
+    window.onload = function () {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, scrollPosition);
+            sessionStorage.removeItem('scrollPosition');
+        }
+    };
 });
+
+
 
 
 window.onload = loadProducts;

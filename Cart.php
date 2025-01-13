@@ -77,9 +77,10 @@ if (isset($_SESSION['user_id'])) {
                 </tbody>
             </table>
             <h2>Total Price: Rs. <?php echo htmlspecialchars($total_price); ?></h2>
-            <form action="clear-cart.php" method="POST">
-                <input type="submit" value="Clear Cart">
-            </form>
+            
+    <form action="clear-cart.php" method="POST">
+        <input type="submit" value="Clear Cart">
+    </form>
             <form action="checkout.php" method="POST">
                 <input type="submit" value="Proceed to Checkout">
             </form>
@@ -93,8 +94,9 @@ if (isset($_SESSION['user_id'])) {
 
 <?php
 } else {
-    echo '<div class="login-message">
-            <p>You need to <a href="login.php">log in</a> to view your cart.</p>
-          </div>';
+    echo '
+    <div style="background-color: #f8d7da; color: #721c24; padding: 20px; border: 1px solid #f5c6cb; border-radius: 5px; font-weight: bold; margin: 20px 0; text-align: center;">
+        <p>You need to <a href="login.php" style="color: #155724; font-weight: bold; text-decoration: none;">log in</a> to view your cart.</p>
+    </div>';
 }
 ?>
