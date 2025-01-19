@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-    height: 105vh;
+    height: 100vh; /* Full height of the viewport */
     background-color: #f9f9f9; 
-    margin-right: 25cm;
-    
- 
+    margin: 0; /* Remove margin to avoid unwanted offset */
+    padding: 0; /* Ensure no padding affects centering */
+    box-sizing: border-box; /* Include padding and border in dimensions */
 }
 
 /* Style the list */
@@ -26,7 +26,6 @@
 .list li {
     margin: 10px 0; 
     background-color: rgb(194, 191, 191);
-
 }
 
 /* Style the links */
@@ -43,5 +42,5 @@
 /* Hover effect for the links */
 .list li a:hover {
     background-color: #f1f1f1; 
-    border-radius: 5px; 
+    border-radius: 5px;
 }

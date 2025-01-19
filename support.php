@@ -36,7 +36,7 @@
 
         <section class="support-section">
             <h3>Feedback</h3>
-            <p>Your feedback is important to us! Let us know how we can improve our services by filling out our <a href="feedback.html" class="faq-link">Feedback Form</a>.</p>
+            <p>Your feedback is important to us! Let us know how we can improve our services by filling out our <a href="feedback.php" class="faq-link">Feedback Form</a>.</p>
         </section>
     </div>
 

@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="filter-section" >
-        <i class="fa-solid fa-bars">&nbsp&nbsp&nbsp&nbsp&nbspFILTER</i>
+        <i class="fa-solid fa-bars">&nbsp&nbsp&nbsp&nbsp&nbspFILTER</i> 
     </br></br>
     <form method="get" action="brandsGallery.php">
     <input type="hidden" name="brand_id" value="<?php echo htmlspecialchars($brand_id); ?>">
@@ -38,7 +38,7 @@
             <label><input type="checkbox" name="occasion" value="sports"> Sports</label>
             <label><input type="checkbox" name="occasion" value="slides"> Slides</label>
         </div>
-        <button class="submit-filter" type="submit">Apply Filters</button>
+        <button class="submit-filter" type="submit">Apply Filter</button>
     </form>
     </div>
 

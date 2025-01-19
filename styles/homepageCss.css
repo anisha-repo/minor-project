@@ -14,7 +14,7 @@
 .sliderWrapper {
   display: flex;
   width: 500vw;
-  transition: all 8s ease-in-out;
+  transition: all 3s ease-in-out;
 }
 
 .sliderItem {

@@ -30,7 +30,7 @@
 
         <div class="support-section">
             <h3>Frequently Asked Questions</h3>
-            <p>Have a question? Check out our <a href="faq.html" class="faq-link">FAQ page</a>.</p>
+            <p>Have a question? Check out our <a href="faq.php" class="faq-link">FAQ page</a>.</p>
         </div>
 
     </div>

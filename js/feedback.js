@@ -8,7 +8,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     const rating = document.getElementById('rating').value;
     const comments = document.getElementById('comments').value;
 
-    // Here, you could send the data to a server (e.g., via fetch API)
+    console.log(name, email, rating, comments); // Debugging
 
     // Display thank you message
     document.getElementById('thankYouMessage').style.display = 'block';

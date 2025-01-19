@@ -135,36 +135,27 @@ $connection->close();
                                <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                               <label class="btn btn-outline-primary" for="btnradio1" value="5">5</label>
 
-                              <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                              <label class="btn btn-outline-primary" for="btnradio1" value="6">6</label>
+                              <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btnradio2" value="6">6</label>
 
                         
-                             <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                              <label class="btn btn-outline-primary" for="btnradio1" value="7">7</label>
+                             <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btnradio3" value="7">7</label>
 
-                              <input type="radio" onclick="check()"class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio2" value="8">8</label>
+                              <input type="radio" onclick="check()"class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="btnradio4" value="8">8</label>
 
-                              <input type="radio" onclick="check()"class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio3" value="9">9</label>
+                              <input type="radio" onclick="check()"class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="btnradio5" value="9">9</label>
 
-                               <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio4" value="10">10</label><!--shoe-size-start-->
+                               <input type="radio" onclick="check()" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+                              <label class="btn btn-outline-primary" for="btnradio6" value="10">10</label><!--shoe-size-start-->
                         </div>
 
 
                                 <!--quantity-start-->
-                    <div class="qty" >
-                        <div class="btns-qty">
-                            <div><label class="qty-text">QTY:-</label></div>&nbsp&nbsp&nbsp&nbsp
-
-                            <div><button type="button"id="dec">-</button></div>&nbsp&nbsp
-
-                            <div class="qty_numbers" id="counting">1</div>&nbsp&nbsp
-
-                            <div><button  type="button" id="inc">+</button></div>
-                        </div>
-                    </div>
+                    
+                               
                          <!--quantity-end-->
 
                           <!--add-to-cart-start-->
@@ -172,25 +163,18 @@ $connection->close();
                        
                         <form action="addtocart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                            
-                            <!-- Quantity input -->
+                           <br>
+                           <br>
+                        
                             <label for="quantity">Quantity:</label>
-                            <input type="number" name="quantity" value="1" min="1" max="5">
-                            
+                            <input type="number" name="quantity" value="1" min="1" max="5">
+
                             <button class="add_cart" type="submit">
                                 <i class="fas fa-cart-plus"></i> Add to Cart
-                            </button>
-
-                            <!-- Wishlist button -->
-                            <?php
-                            echo '<button class="wish" id="wishlistIcon">';
-                            echo ' <i class="fa-solid fa-heart fa-2xl" id="wishlist"></i>';
-                            echo '</button>';
-                            ?>
+                            </button>
+                            
                         </form>
-
-                        
-                       
+ 
                                  <p id="message"></p>
                                  
                         </div>

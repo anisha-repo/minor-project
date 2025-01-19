@@ -20,7 +20,7 @@
                <a href="support.php"> <li class="fListItem">Support</li></a> 
                <a  href="refund.php"> <li class="fListItem">Refund</li></a> 
                <a  href="faq.php"> <li class="fListItem">FAQ</li></a> 
-               <a  href="feedback.phps"> <li class="fListItem">Feedback</li></a> 
+               <a  href="feedback.php"> <li class="fListItem">Feedback</li></a> 
                <a  href="support.php"> <li class="fListItem">Stores</li></a> 
             </ul>
         </div><div class="footerMenu" >

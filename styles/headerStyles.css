@@ -206,7 +206,7 @@ nav {
   }
 }
 
-/* Large Screens (min-width: 1024px) */
+/* Large Screens (min-width: 1024px)
 @media only screen and (min-width: 1024px) {
   .navTop {
     max-width: 1200px;
@@ -221,4 +221,4 @@ nav {
     font-size: 18px;
     padding: 16px;
   }
-}
+} */

@@ -1,4 +1,3 @@
-
 <?php
 include("includes/header.php");
 include("includes/db.php"); // Database connection
@@ -22,7 +21,7 @@ include("includes/db.php"); // Database connection
         <li><a href="support.php">SUPPORT</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="helpline.php">HELPLINE</a></li>
-        <li><a href="our blog/index.html">OUR BLOG</a></li>
+        <li><a href="ourblog.php">OUR BLOG</a></li>
         <li><a href="feedback.php">FEEDBACK</a></li>
         <li><a href="logout.php">LOGOUT</a></li>
 </ul>

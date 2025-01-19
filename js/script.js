@@ -1,172 +1,92 @@
-const wrapper = document.querySelector(".sliderWrapper");
-const menuItems = document.querySelectorAll(".menuItem");
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderWrapper = document.querySelector(".sliderWrapper");
+  const sliderItems = document.querySelectorAll(".sliderItem");
+  const sliderButtonLeft = document.querySelector(".sliderButton.left");
+  const sliderButtonRight = document.querySelector(".sliderButton.right");
+  const menuItems = document.querySelectorAll(".menuItem");
+  const productButton = document.querySelector(".productButton");
+  const currentProductColors = document.querySelectorAll(".color");
+  const currentProductSizes = document.querySelectorAll(".size");
 
-const products = [
-  {
-    id: 1,
-    title: "Air Force",
-    price: 119,
-    colors: [
-      {
-        code: "black",
-        img: "../assets/Images/sneaker-images/air.png",
-      },
-      {
-        code: "darkblue",
-        img: "../assets/Images/sneaker-images/air2.png",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Air Jordan",
-    price: 149,
-    colors: [
-      {
-        code: "lightgray",
-        img: "../assets/Images/sneaker-images/jordan.png",
-      },
-      {
-        code: "green",
-        img: "../assets/Images/sneaker-images/jordan2.png",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Blazer",
-    price: 109,
-    colors: [
-      {
-        code: "lightgray",
-        img: "../assets/Images/sneaker-images/blazer.png",
-      },
-      {
-        code: "green",
-        img: "../assets/Images/sneaker-images/blazer2.png",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Crater",
-    price: 129,
-    colors: [
-      {
-        code: "black",
-        img: "../assets/Images/sneaker-images/crater.png",
-      },
-      {
-        code: "lightgray",
-        img: "../assets/Images/sneaker-images/crater2.png",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Hippie",
-    price: 99,
-    colors: [
-      {
-        code: "gray",
-        img: "../assets/Images/sneaker-images/hippie.png",
-      },
-      {
-        code: "black",
-        img: "../assets/Images/sneaker-images/hippie2.png",
-      },
-    ],
-  },
-];
+  let currentIndex = 0;
+  const totalSlides = sliderItems.length;
 
-let choosenProduct = products[0];
+  // Slider navigation
+  if (sliderButtonLeft && sliderButtonRight) {
+      sliderButtonLeft.addEventListener("click", () => {
+          if (currentIndex > 0) {
+              currentIndex--;
+              moveSlider();
+          }
+      });
 
-const currentProductImg = document.querySelector(".productImg");
-const currentProductTitle = document.querySelector(".productTitle");
-const currentProductPrice = document.querySelector(".productPrice");
-const currentProductColors = document.querySelectorAll(".color");
-const currentProductSizes = document.querySelectorAll(".size");
+      sliderButtonRight.addEventListener("click", () => {
+          if (currentIndex < totalSlides - 1) {
+              currentIndex++;
+              moveSlider();
+          }
+      });
+  }
 
-menuItems.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    //change the current slide
-    wrapper.style.transform = `translateX(${-100 * index}vw)`;
+  const moveSlider = () => {
+      const offset = -currentIndex * 100;
+      sliderWrapper.style.transform = `translateX(${offset}vw)`;
+  };
 
-    //change the choosen product
-    choosenProduct = products[index];
+  // Menu interactions
+  if (menuItems.length) {
+      menuItems.forEach((item, index) => {
+          item.addEventListener("click", () => {
+              currentIndex = index;
+              moveSlider();
+          });
+      });
+  }
 
-    //change texts of currentProduct
-    currentProductTitle.textContent = choosenProduct.title;
-    currentProductPrice.textContent = "$" + choosenProduct.price;
-    currentProductImg.src = choosenProduct.colors[0].img;
+  // Product colors and sizes
+  if (currentProductColors.length) {
+      currentProductColors.forEach((color, index) => {
+          color.addEventListener("click", () => {
+              console.log(`Color ${index + 1} clicked!`);
+          });
+      });
+  }
 
-    //assing new colors
-    currentProductColors.forEach((color, index) => {
-      color.style.backgroundColor = choosenProduct.colors[index].code;
+  if (currentProductSizes.length) {
+      currentProductSizes.forEach((size, index) => {
+          size.addEventListener("click", () => {
+              currentProductSizes.forEach((s) => {
+                  s.style.backgroundColor = "white";
+                  s.style.color = "black";
+              });
+              size.style.backgroundColor = "black";
+              size.style.color = "white";
+          });
+      });
+  }
+
+  // Product button interaction
+ 
+});
+
+const buyButtons = document.querySelectorAll('.buyButton');
+
+buyButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the product ID from the data attribute of the parent element
+        const productId = this.closest('.sliderItem').getAttribute('data-product-id');
+        
+        // Redirect to the product detail page
+        window.location.href = `detailpage.php?product_id=${productId}`;
     });
-  });
 });
-
-currentProductColors.forEach((color, index) => {
-  color.addEventListener("click", () => {
-    currentProductImg.src = choosenProduct.colors[index].img;
-  });
-});
-
-currentProductSizes.forEach((size, index) => {
-  size.addEventListener("click", () => {
-    currentProductSizes.forEach((size) => {
-      size.style.backgroundColor = "white";
-      size.style.color = "black";
+const productButton = document.querySelectorAll('.productButton');
+productButton.forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the product ID from the data attribute of the parent element
+        const productId = this.closest('.product').getAttribute('data-product-id');
+        
+        // Redirect to the product detail page
+        window.location.href = `detailpage.php?product_id=${productId}`;
     });
-    size.style.backgroundColor = "black";
-    size.style.color = "white";
-  });
 });
-
-const productButton = document.querySelector(".productButton");
-const payment = document.querySelector(".payment");
-const close = document.querySelector(".close");
-
-productButton.addEventListener("click", () => {
-  payment.style.display = "flex";
-});
-
-close.addEventListener("click", () => {
-  payment.style.display = "none";
-});
-
-const sliderWrapper = document.querySelector('.sliderWrapper');
-const sliderItems = document.querySelectorAll('.sliderItem');
-let currentIndex = 0; // Start at the first slide
-const totalSlides = sliderItems.length;
-
-// Function to move the slider based on the current index
-function moveSlider(index) {
-    const offset = -index * 100; // Move the slider one step (100% width)
-    sliderWrapper.style.transform = `translateX(${offset}%)`;
-}
-
-// Function to move to the next slide (right button)
-function nextSlide() {
-    if (currentIndex < totalSlides - 1) {  // Check if not on the last slide
-        currentIndex++;  // Move to the next slide
-        moveSlider(currentIndex);
-    }
-}
-
-// Function to move to the previous slide (left button)
-function prevSlide() {
-    if (currentIndex > 0) {  // Check if not on the first slide
-        currentIndex--;  // Move to the previous slide
-        moveSlider(currentIndex);
-    }
-}
-
-// Event listener for the right button
-document.querySelector('.sliderButton.right').addEventListener('click', nextSlide);
-
-// Event listener for the left button
-document.querySelector('.sliderButton.left').addEventListener('click', prevSlide);
-
-

@@ -44,23 +44,20 @@
                     <button class="buyButton">BUY NOW!</button>
                 </a>
             </div>
-            <div class="sliderItem" >
+            <div class="sliderItem" data-product-id="512">
                 <img src="imgs/CONVERSE.png" alt="image 4" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">CONVERSE</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">6,999/-</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
+                <button class="buyButton">BUY NOW!</button>
             </div>
-            <div class="sliderItem" >
+            <div class="sliderItem" data-product-id="608">
                 <img src="imgs/NEWBALANCE.png" alt="image 5" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">NEW BALANCE</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">9,799/-</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
+              <button class="buyButton">BUY NOW!</button>
+                
             </div>
         </div>
          <!-- Left button for previous slide -->
@@ -87,11 +84,11 @@
         </div>
     </div>
 
-    <div class="product" id="product" >
+    <div class="product" id="product" data-product-id="110" >
         <img src="imgs/image.png" alt="" class="productImg">
         <div class="productDetails">
-            <h1 class="productTitle" >AIR FORCE 1</h1>
-            <h2 class="productPrice">16,625/-</h2>
+            <h1 class="productTitle" >AIR FORCE 1 HIGH'07</h1>
+            <h2 class="productPrice">14,959/-</h2>
             <p class="productDesc">
                 Once upon a midnight dreary, this Air Force 1 looked extra eerie. Shadows crept from beneath the "AIR", while ghoulish green accents added Halloween flair. And that all-black upper with reflective-design coating … well, it let others know they'd better beware. You get the idea.
             <p>
@@ -105,9 +102,9 @@
                 <div class="size">8</div>
                 <div class="size">9</div>
             </div>
-            <button class="productButton">BUY NOW !</button>
+          <button class="productButton">BUY NOW !</button>
         </div>
-        <div class="payment" >
+        <!-- <div class="payment" >
             <h1 class="payTitle">Personal Information</h1>
             <label>Name and Surname</label>
             <input type="text" placeholder="John Doe" class="payInput">
@@ -125,10 +122,10 @@
                 <input type="text" placeholder="mm" class="payInput sm">
                 <input type="text" placeholder="yyyy" class="payInput sm">
                 <input type="text" placeholder="cvv" class="payInput sm">
-            </div>
-            <button class="payButton" type="submit">Checkout !</button>
-            <span class="close">X</span>
-        </div>
+            </div> -->
+            <!-- <button class="payButton" type="submit">Checkout !</button>
+            <span class="close">X</span> -->
+        <!-- </div> -->
     </div>
 
     <div class="gallery" >
@@ -159,7 +156,7 @@
             <h1 class="nsTitle">New Season</h1>
             <h1 class="nsTitle">New Collection</h1>
             <h1 class="nsTitle">Coming Soon</h1>
-            <a href="#nav">
+            <a href="newarrival.php">
                 <button class="nsButton">CHOOSE YOUR STYLE</button>
             </a>
         </div>
