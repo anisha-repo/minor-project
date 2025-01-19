@@ -16,33 +16,30 @@
   <body>
     <div class="slider" >
         <div class="sliderWrapper">
-            <div class="sliderItem" >
+            <div class="sliderItem" data-product-id="740">
                 <img src="imgs/NIKE.png" alt="image 1" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">NIKE</br> NEW</br>SEASON</h1>
-                <h2 class="sliderPrice">14,975/-</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
+                <h2 class="sliderPrice">12,475/-</h2>
+                <button class="buyButton">BUY NOW!</button>
+                
             </div>
         
-            <div class="sliderItem" >
+            <div class="sliderItem" data-product-id="11000" >
                 <img src="imgs/PUMA.png" alt="image 2" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">PUMA</br> NEW</br>SEASON</h1>
-                <h2 class="sliderPrice">5,999/-</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
+                <h2 class="sliderPrice">5,399/-</h2>
+                <button class="buyButton">BUY NOW!</button>
+                
             </div>
-            <div class="sliderItem" >
+            <div class="sliderItem" data-product-id="10999" >
                 <img src="imgs/ADIDAS.png" alt="image 3" class="sliderImg" >
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">ADIDAS</br> NEW</br>SEASON</h1>
                 <h2 class="sliderPrice">10,999/-</h2>
-                <a href="#product">
-                    <button class="buyButton">BUY NOW!</button>
-                </a>
+                <button class="buyButton">BUY NOW!</button>
+            
             </div>
             <div class="sliderItem" data-product-id="512">
                 <img src="imgs/CONVERSE.png" alt="image 4" class="sliderImg" >
@@ -104,28 +101,6 @@
             </div>
           <button class="productButton">BUY NOW !</button>
         </div>
-        <!-- <div class="payment" >
-            <h1 class="payTitle">Personal Information</h1>
-            <label>Name and Surname</label>
-            <input type="text" placeholder="John Doe" class="payInput">
-            <label>Phone Number</label>
-            <input type="text" placeholder="+1 234 5678" class="payInput" >
-            <label>Address</label>
-            <input type="text" placeholder="Elton St 21 22-145" class="payInput">
-            <h1 class="payTitle">Card Information</h1>
-            <div class="cardIcons" >
-                <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/visa.png" width="40" alt="" class="cardIcon" >
-                <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/master.png" width="40" alt="" class="cardIcon" >
-            </div>
-            <input type="password" class="payInput" placeholder="Card Number" >
-            <div class="cardInfo" >
-                <input type="text" placeholder="mm" class="payInput sm">
-                <input type="text" placeholder="yyyy" class="payInput sm">
-                <input type="text" placeholder="cvv" class="payInput sm">
-            </div> -->
-            <!-- <button class="payButton" type="submit">Checkout !</button>
-            <span class="close">X</span> -->
-        <!-- </div> -->
     </div>
 
     <div class="gallery" >
